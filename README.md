@@ -35,7 +35,7 @@ The cleaned canonical experiment contains:
 ## Installation
 
 ```bash
-git clone https://github.com/REPLACE_WITH_OWNER/Desalination-LLM.git
+git clone https://github.com/OmidMLdata/Desalination-LLM.git
 cd Desalination-LLM
 python -m venv .venv
 source .venv/bin/activate
@@ -80,7 +80,7 @@ Copy the original model assets from the local research project:
 
 ```bash
 desalination-llm import-assets \
-  /home/akshay/Documents/MD/test_gemini \
+  /path/to/test_gemini \
   --destination models/original_cnn_mlp
 ```
 
