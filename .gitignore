@@ -1,0 +1,41 @@
+# Credentials
+.env
+.env.*
+*.key
+*.pem
+credentials*.json
+token*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Generated runs
+results/
+
+# Large external scientific assets
+*.dcd
+*.xtc
+*.trr
+*.lammpstrj
+*.npy
+*.npz
+models/original_cnn_mlp/*.ckpt
+models/original_cnn_mlp/*.pt
+models/original_cnn_mlp/*.pth
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

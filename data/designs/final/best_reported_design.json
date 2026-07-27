@@ -1,0 +1,6 @@
+{
+  "design_id": "run1_step08_trial17",
+  "flux_ns_inverse": 159.88723162098867,
+  "ion_rejection_fraction": 0.9339835587629484,
+  "selection_note": "Trial record matching the manuscript-reported ~159.89 ns^-1 and 93.4% rejection design."
+}

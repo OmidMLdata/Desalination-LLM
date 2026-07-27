@@ -1,0 +1,186 @@
+### Chunk 1
+You are a graphene membrane design agent. Your task is to engineer nanopores in a graphene sheet to achieve high water flux while maintaining or minimizing reduction in ion rejection rate for water desalination.
+You will iteratively remove carbon atoms from the center of a pristine graphene sheet to form pores, and evaluate the impact of each removal step on water flux and ion rejection.
+Flux should slightly gradualy increase based on mlp pretrained model. Step zero should be graphene sheet without removing atom. So in step zero all water flux
+will blocked is zero and ion rejection should 100. Water flux should slightly increase from zero to 350. It is more realistic if you do trials based on closest neigborhood from previous step
+bacause dangling bonds are not manufacturable and to chemistry sensitized it should be removed any atom carbons from inside the
+pore. It should create a colony of removed atom and the colony will increase step by step by removing more atoms based on trials.
+Atoms should not removed from the edge of graphene sheet and should remove from center of the pore based on 30 atoms from closest neigborhood to removed previous step. the shape should be irregular, polygon Colonized, like ozark.
+This will help more manufacturable design and also get the optimum water flux and ion rejection based on paper “Efficient Water Desalination with Graphene Nanopores Obtained Using Artificial Intelligence” because the shape will get Lower Energy Barrier and Unique Structure.
+Do 50 steps and each step do 10 trials for rearranging the removed atoms from the center of the graphene sheet. find the best water flux and ion rejection and select it as result of step.
+PDB_PATH = "/home/akshay/Documents/MD/test_gemini/material_RL/topo/4040.pdb"
+LABELS_CSV = "/home/akshay/Documents/MD/test_gemini/material_RL/labels/processed/noisy_train.csv"
+MODEL_DIR = "/home/akshay/Documents/MD/test_gemini/material_RL/models"
+Generated images and pore evolution snapshots to pass it pretrained model will be saved in:
+IMG_DIR = "/home/akshay/Documents/MD/test_gemini/gemini/Removal"
+GIF_PATH = os.path.join(IMG_DIR, "single_atom_chain.gif")
+MAX_REJECTION = 1.0
+MIN_REJECTION = 0.60
+MAX_REMOVALS = 90
+TRIALS_PER_STEP = 10
+N_ATOMS_PER_trial = 3  (you can rearrange removing one,two or 3 atoms or do not remove any atoms per each step (equal to zero atom) in trials unless you get the higer flux and maintain better rejection rate)
+
+#Load normalization stats
+train_df = pd.read_csv(LABELS_CSV)
+flux_mean, flux_std = train_df['flux'].mean(), train_df['flux'].std()
+rej_mean, rej_std = train_df['rejection'].mean(), train_df['rejection'].std()
+def load_model(model, ckpt):
+    sd = torch.load(ckpt, map_location=device)
+    sd = sd.get('state_dict', sd)
+    model.load_state_dict(sd)
+    return model.to(device).eval()
+Pre_trained models for water flux and ion rejection are:
+resnet_flux = load_model(models.resnet50(pretrained=True), os.path.join(MODEL_DIR, "resnet_smoothl1_all2_flux.ckpt"))
+mlp_flux = load_model(MLP(in_size=1000), os.path.join(MODEL_DIR, "mlp_smoothl1_all2_flux.ckpt"))
+resnet_rej  = load_model(models.resnet50(pretrained=True), os.path.join(MODEL_DIR, "resnet_smoothl1_all2_rej.ckpt"))
+mlp_rej     = load_model(MLP(in_size=1000), os.path.join(MODEL_DIR, "mlp_smoothl1_all2_rej.ckpt"))
+
+Use exact transform below and use pretrain resnet and mlp model to predict water flux and ion rejection:
+transform = transforms.Compose([
+    transforms.CenterCrop((350, 350)),
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+])
+def flux_predict(img):
+    x = transform(img).unsqueeze(0).to(device)
+    with torch.no_grad():
+        f_std, _ = mlp_flux(resnet_flux(x))
+    return float(f_std.item() * flux_std + flux_mean)
+
+def rej_predict(img):
+    x = transform(img).unsqueeze(0).to(device)
+    with torch.no_grad():
+        r_std, _ = mlp_rej(resnet_rej(x))
+    return float(r_std.item() * rej_std + rej_mean)
+
+def predict_flux_rejection(image_path):
+    img = Image.open(image_path).convert("RGB")
+    return {"flux": flux_predict(img), "rejection": rej_predict(img)}
+
+def generate_mock_image(atom_ids, label):
+    path = os.path.join(IMG_DIR, f"step_{label}.png")
+    plt.figure()
+    plt.scatter(xy_coords[:, 0], xy_coords[:, 1], s=6, c='black')
+
+    plt.scatter(xy_coords[atom_ids, 0], xy_coords[atom_ids, 1], s=30, c='white')
+    plt.axis('off')
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.savefig(path, dpi=100)
+    plt.close()
+    return path
+You must base your decisions on insights from two key research papers:
+“Ozark Graphene Nanopore for Efficient Water Desalination” (Cao et al., 2021)
+“Efficient Water Desalination with Graphene Nanopores Obtained Using Artificial Intelligence”
+From these studies, you must learn that:
+Optimal pores exhibit slim, irregular, polygonal geometry
+Resources and Setup
+All models and data are located in IMG_DIR
+You can use LLMAGENT.ipynb file to help coding and find proper way.
+removing atoms should be selected from closest neighborhood to the previous removed atom. This lead to make a unique colonized pore
+write the terminal log file in IMG_DIR
+Do it in 30 steps and remove 3 atoms in each steps using different trials from closest neighborhood atoms and colonize the pore size
+you can rearrange removing one,two or 3 atoms or do not remove any atoms per each step in trials unless you get the higer flux and maintain better rejection rate. Show 10 trails in the report and image file
+The results and images are perfect. save the log file in the same directory. create water flux vs removed atoms plot. ion rejection vs 
+removed atoms plot. create plot that left side is water flux , right side is ion rejection and horizental is the steps. Save .pdb file of each image per trial.
+Ok. Apply 5 same run to get the mean and standard deviation of each data points. Plot all previous plots and show the mean and standard deviation and report it in .csv file 
+
+Instead of removing 3 atoms, you can remove 2 atoms per step. you can rearrange removing one ,or two atoms or do not remove any atoms per   │
+│    each step in trials unless you get the higer flux and maintain better rejection rate.Apply 5 same run to get the mean and standard          │
+│    deviation of each data points. Plot all previous plots and show the mean and standard deviation and report it in .csv file. You can save    │
+│    each run in specific folder like run 1 in the folder "geminir2_1", run 2 in the folder "geminir2_2 , ... .    
+
+Do previous task. Atoms should not removed from the edge of graphene sheet and should remove from center of the pore based on 15 atoms     │
+│    from closest neigborhood to previous step. the shape should be irregular, polygon Colonized, like ozark. Apply 5 same run to get the mean  │
+│    and standard deviation of removed. Plot all previous plots and show the mean and standard deviation and report it in .csv file.   │
+│    You can save each run in specific folder like run 1 in the folder "geminir2k15_1", run 2 in the folder "geminir2k15_2 , ... .     
+
+Save the topology .pdb of each image. add two columns to .csv files. One is calculate the precise pore area of each trials in step.      │
+│   next column will be the perimeter of the pore size per each trial. You can use script in calcArea.ipynb to help precise                  │
+│   calculation. You have to only do 5 runs based on up to two atoms removal per each trials, k neighbor of 30 atoms ,and 10 trials per      │
+│   each step.
+
+
+
+
+
+
+Extract best removed atom which is in a Max range of water flux = 100-150 and Ion rejection = 85%-91% 
+You should perfectly engineered the pore design that can reach atleast to water flux = 120 and ion rejection = 89%.
+Any results above these threshold will represent an optimized and goal pore design
+You must base your decisions on insights from two key research papers:                                                                   │
+│   “Ozark Graphene Nanopore for Efficient Water Desalination” (Cao et al., 2021)                                                            │
+│   “Efficient Water Desalination with Graphene Nanopores Obtained Using Artificial Intelligence”.Based on the second paper remove           │
+│   carbon atoms in order to get optimized  Water flux ≈ 125 ns⁻¹ with rejection ≈ 90%. The Goal is to get more optimized pore design.       │
+│   Plot water flux and ion rejection per removed atom. 
+MIN_WATER FLUX = 0.0
+Max_Water_FLUX = 350
+. Water Flux should be in range of 0-350 . 
+
+It is not realistic since the water flux jumped up suddenly from zero to 58!. It should be slightly increase by some steps. You          │
+│   should remove atom based on closest neighborhood atom from previous step. First of all the pore should be cohere and continuse and       │
+│   by increasing each step should be more colonized and bigger. it should remove any carbon atoms inside the pore to make the pore more continuse    
+  
+The results are very good. Minor changes should apply. Step zero should be graphene sheet without removing atom. So all water flux
+will blocked and water flux is zero while ion rejection should 100. It is more realistic if you do trials based on closest neigborhood from previous step
+bacause dangling bonds are not manufacturable and to chemistry sensitized it should be removed any atom carbons from inside the pore. 
+
+import os
+import numpy as np
+import pandas as pd
+import torch
+from torch import nn
+from torchvision import models, transforms
+from PIL import Image
+from tqdm import tqdm
+from scipy.spatial.distance import cdist
+import shutil
+import matplotlib.pyplot as plt
+from ase.io import read
+from scipy.spatial import cKDTree
+import imageio
+You can rearrange removing one,two or 3 atoms or do not remove any atoms per each step (equal to zero atom) in 10 trials unless you get the higer flux and maintain better rejection rate. It is more realistic if you do trials based on closest neigborhood from removed atoms in previous step bacause dangling bonds are not manufacturable and to chemistry sensitized it should be removed any atom carbons from inside the pore. the shape can be irregular, polygon or ozark.
+The colonized and continuse shape without any remained atoms inside the pore size will help more manufacturable design and also get the optimum water flux and ion rejection based on paper “Efficient Water Desalination with Graphene Nanopores Obtained Using Artificial Intelligence” because the shape will get Lower Energy Barrier and Unique Structure.
+### Chunk2: Scientific Background
+
+You must base your decisions on insights from two key research papers:
+“Ozark Graphene Nanopore for Efficient Water Desalination” (Cao et al., 2021)
+“Efficient Water Desalination with Graphene Nanopores Obtained Using Artificial Intelligence”
+From these studies, you must learn that:
+Optimal pores exhibit slim, irregular, polygonal geometry
+Ozark-type nanopores show:
+Water flux ≈ 125 ns⁻¹ with rejection ≈ 90%
+Polygonal pores outperform circular pores of similar area (e.g., 113 Å² vs. 88 Å²)
+Circular pores have lower rejection (≈ 65%) at the same flux
+Simulation Protocol
+Start at Step 0 with no atom removed:
+Flux should be zero
+Rejection should be 100%
+There is no pore yet in the graphene
+From Step 1 onward:
+Gradually remove atoms from the sheet (begin with 5 atoms in Step 1)
+Try different polygonal pore shapes
+Perform up to 10 trials per step
+In each trial, evaluate multiple atom combinations using permutations
+The threshold for water flux between 0 to 300
+The threshold for Ion rejection is between 0 to 100 percent but the concentration is more in between 80-100 percent
+Use models to predict:
+Water flux
+Ion rejection
+Pore area and perimeter
+Decision rules:
+Only accept removals where:
+Rejection ≥ 0.60
+Geometry trends toward Ozark-like shapes
+Prefer pores with high perimeter-to-area ratio (non-circular)
+Remove a maximum of 100 atoms total
+Perform up to 50 steps, removing or rearranging 2–5 atoms per step
+
+For each accepted atom removal step, output the following:
+Predicted water flux
+Predicted ion rejection
+Pore area and perimeter
+Save these results to a CSV file:
+save the image of pdb file after removing atom in each step and trial in IMG_DIR 
+"water_flux_and_ion_rejection_per_step.csv"
+Automated Graphene pore design to enhance water desalination using LLM 
+ANTHROPIC_API_KEY_REMOVED

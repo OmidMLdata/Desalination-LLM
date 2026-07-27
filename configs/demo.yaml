@@ -1,0 +1,25 @@
+structure: data/structures/pristine_graphene_4040.pdb
+output_dir: results/demo
+runs: 1
+
+optimization:
+  steps: 10
+  trials_per_step: 20
+  nearest_neighbors: 30
+  max_atoms_per_trial: 3
+  max_atoms_per_step: 3
+  max_total_removals: 30
+  minimum_rejection: 0.60
+  random_seed: 42
+  edge_margin_angstrom: 2.5
+  colonize_internal_atoms: true
+  require_flux_improvement: false
+  save_trial_assets: false
+
+predictor:
+  backend: geometry-surrogate
+  model_path: models/geometry_surrogate.joblib
+
+agents:
+  mode: rule-based
+  minimum_votes: 2

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript and this software repository."
+title: "Desalination LLM: LLM-guided graphene nanopore design"
+type: software
+authors:
+  - family-names: "Barati Farimani"
+    given-names: "Omid"
+  - family-names: "Barati Farimani"
+    given-names: "Amir"
+version: 0.1.0
+date-released: 2026-07-24
+repository-code: "https://github.com/REPLACE_WITH_OWNER/Desalination-LLM"
+preferred-citation:
+  type: article
+  title: "Desalination LLM: Large Language Model Agents Design Efficient Graphene Membranes for Water Desalination"
+  authors:
+    - family-names: "Barati Farimani"
+      given-names: "Omid"
+    - family-names: "Barati Farimani"
+      given-names: "Amir"
+  year: 2026

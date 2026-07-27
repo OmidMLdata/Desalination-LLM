@@ -1,0 +1,33 @@
+{
+  "design_id": "run1_step08_trial08",
+  "run": 1,
+  "step": 8,
+  "trial": 8,
+  "flux_ns_inverse": 156.9425054394305,
+  "ion_rejection_fraction": 0.9353502934598752,
+  "removed_atom_serials": [
+    175,
+    237,
+    240,
+    242,
+    243,
+    244,
+    246,
+    296,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    307,
+    308,
+    361,
+    362,
+    365,
+    366
+  ],
+  "source_pdb": "run_1/step_8_trial_8.pdb",
+  "source_image": "run_1/step_8_trial_8.png"
+}

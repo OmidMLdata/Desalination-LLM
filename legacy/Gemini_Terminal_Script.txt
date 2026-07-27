@@ -1,0 +1,1146 @@
+
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation.)        │
+ │                                                                                                                                      │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is      │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                             │
+ │      warnings.warn(                                                                                                                  │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight      │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to    │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date  │
+ │    weights.                                                                                                                          │
+ │      warnings.warn(msg)                                                                                                              │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:84: FutureWarning: You are using `torch.load` with                     │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct    │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                    │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default     │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.           │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via     │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have  │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.              │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                      │
+ │    Step 0: Initial Flux = 12.05, Rejection = 0.94                                                                                    │
+ │    Could not plot convex hull: QH6154 Qhull precision error: Initial simplex is flat (facet 1 is coplanar with the interior point)   │
+ │                                                                                                                                      │
+ │    While executing:  | qhull i Qt                                                                                                    │
+ │    Options selected for Qhull 2019.1.r 2019/06/21:                                                                                   │
+ │      run-id 555220575  incidence  Qtriangulate  _pre-merge  _zero-centrum                                                            │
+ │      _max-width 6.4  Error-roundoff 2.2e-14  _one-merge 1.1e-13                                                                      │
+ │      _near-inside 5.5e-13  Visible-distance 4.4e-14  U-max-coplanar 4.4e-14                                                          │
+ │      Width-outside 8.7e-14  _wide-facet 2.6e-13  _maxoutside 1.3e-13                                                                 │
+ │                                                                                                                                      │
+ │    The input to qhull appears to be less than 2 dimensional, or a                                                                    │
+ │    computation has overflowed.                                                                                                       │
+ │                                                                                                                                      │
+ │    Qhull could not construct a clearly convex simplex from points:                                                                   │
+ │    - p1(v3):    18    21                                                                                                             │
+ │    - p2(v2):    21    26                                                                                                             │
+ │    - p0(v1):    17    19                                                                                                             │
+ │                                                                                                                                      │
+ │    The center point is coplanar with a facet, or a vertex is coplanar                                                                │
+ │    with a neighboring facet.  The maximum round off error for                                                                        │
+ │    computing distances is 2.2e-14.  The center point, facets and distances                                                           │
+ │    to the center point are as follows:                                                                                               │
+ │                                                                                                                                      │
+ │    center point    18.83    21.98                                                                                                    │
+ │                                                                                                                                      │
+ │    facet p2 p0 distance= 1.8e-15                                                                                                     │
+ │    facet p1 p0 distance= -3.6e-15                                                                                                    │
+ │    facet p1 p2 distance=    0                                                                                                        │
+ │                                                                                                                                      │
+ │    These points either have a maximum or minimum x-coordinate, or                                                                    │
+ │    they maximize the determinant for k coordinates.  Trial points                                                                    │
+ │    are first selected from points that maximize a coordinate.                                                                        │
+ │                                                                                                                                      │
+ │    The min and max coordinates for each dimension are:                                                                               │
+ │      0:     17.19     20.88  difference= 3.684                                                                                       │
+ │      1:     19.14     25.52  difference= 6.381                                                                                       │
+ │                                                                                                                                      │
+ │    If the input should be full dimensional, you have several options that                                                            │
+ │    may determine an initial simplex:                                                                                                 │
+ │      - use 'QJ'  to joggle the input and make it full dimensional                                                                    │
+ │      - use 'QbB' to scale the points to the unit cube                                                                                │
+ │      - use 'QR0' to randomly rotate the input for different maximum points                                                           │
+ │      - use 'Qs'  to search all points for the initial simplex                                                                        │
+ │      - use 'En'  to specify a maximum roundoff error less than 2.2e-14.                                                              │
+ │      - trace execution with 'T3' to see the determinant for each point.                                                              │
+ │                                                                                                                                      │
+ │    If the input is lower dimensional:                                                                                                │
+ │      - use 'QJ' to joggle the input and make it full dimensional                                                                     │
+ │      - use 'Qbk:0Bk:0' to delete coordinate k from the input.  You should                                                            │
+ │        pick the coordinate with the least range.  The hull will have the                                                             │
+ │        correct topology.                                                                                                             │
+ │      - determine the flat containing the points, rotate the points                                                                   │
+ │        into a coordinate plane, and delete the other coordinates.                                                                    │
+ │      - add one or more points to make the input full dimensional.                                                                    │
+ │                                                                                                                                      │
+ │    Step 1: Removed Atoms = 3, Flux = 25.42, Rejection = 0.88                                                                         │
+ │    Step 2: Removed Atoms = 6, Flux = 33.16, Rejection = 0.82                                                                         │
+ │    Step 3: Removed Atoms = 9, Flux = 42.64, Rejection = 0.80                                                                         │
+ │    Step 4: Removed Atoms = 12, Flux = 72.03, Rejection = 0.81                                                                        │
+ │    Step 5: Removed Atoms = 15, Flux = 83.70, Rejection = 0.77                                                                        │
+ │    Step 6: Removed Atoms = 18, Flux = 92.02, Rejection = 0.76                                                                        │
+ │    Step 7: Removed Atoms = 21, Flux = 92.22, Rejection = 0.76                                                                        │
+ │    Step 8: Removed Atoms = 24, Flux = 99.59, Rejection = 0.66                                                                        │
+ │    Step 9: Removed Atoms = 27, Flux = 105.51, Rejection = 0.66                                                                       │
+ │    Step 10: Removed Atoms = 30, Flux = 108.29, Rejection = 0.66                                                                      │
+ │    Step 11: Removed Atoms = 33, Flux = 111.13, Rejection = 0.62                                                                      │
+ │    Step 12: Removed Atoms = 36, Flux = 113.72, Rejection = 0.61                                                                      │
+ │    Step 13: Removed Atoms = 39, Flux = 116.96, Rejection = 0.61                                                                      │
+ │    Step 14: Removed Atoms = 42, Flux = 119.46, Rejection = 0.61                                                                      │
+ │    Step 15: Removed Atoms = 45, Flux = 121.42, Rejection = 0.62                                                                      │
+ │    Step 16: Removed Atoms = 48, Flux = 124.10, Rejection = 0.61                                                                      │
+ │    Step 17: Removed Atoms = 51, Flux = 122.47, Rejection = 0.62                                                                      │
+ │    Step 18: Removed Atoms = 54, Flux = 126.59, Rejection = 0.60                                                                      │
+ │    Step 19: Removed Atoms = 57, Flux = 129.13, Rejection = 0.61                                                                      │
+ │    Step 20: Removed Atoms = 60, Flux = 131.89, Rejection = 0.62                                                                      │
+ │    Step 21: Removed Atoms = 63, Flux = 138.04, Rejection = 0.61                                                                      │
+ │    Step 22: Removed Atoms = 66, Flux = 139.52, Rejection = 0.61                                                                      │
+ │    Step 23: Removed Atoms = 69, Flux = 139.33, Rejection = 0.60                                                                      │
+ │    Step 24: Removed Atoms = 72, Flux = 142.40, Rejection = 0.60                                                                      │
+ │    Step 25: Removed Atoms = 75, Flux = 141.22, Rejection = 0.60                                                                      │
+ │    Step 26: Removed Atoms = 78, Flux = 139.93, Rejection = 0.62                                                                      │
+ │    Step 27: Removed Atoms = 81, Flux = 140.82, Rejection = 0.62                                                                      │
+ │    Step 28: Removed Atoms = 84, Flux = 140.85, Rejection = 0.60                                                                      │
+ │    Step 29: Removed Atoms = 87, Flux = 142.68, Rejection = 0.60                                                                      │
+ │    Step 30: Removed Atoms = 90, Flux = 145.32, Rejection = 0.61                                                                      │
+ │    Step 31: Removed Atoms = 93, Flux = 147.42, Rejection = 0.61                                                                      │
+ │    Step 32: Removed Atoms = 96, Flux = 148.36, Rejection = 0.61                                                                      │
+ │    Step 33: Removed Atoms = 99, Flux = 141.00, Rejection = 0.61                                                                      │
+ │    Step 34: Removed Atoms = 102, Flux = 139.27, Rejection = 0.61                                                                     │
+ │    Step 35: Removed Atoms = 105, Flux = 139.47, Rejection = 0.61                                                                     │
+ │    Step 36: Removed Atoms = 108, Flux = 141.76, Rejection = 0.61                                                                     │
+ │    Step 37: Removed Atoms = 111, Flux = 144.45, Rejection = 0.61                                                                     │
+ │    Step 38: Removed Atoms = 114, Flux = 144.87, Rejection = 0.60                                                                     │
+ │    Step 39: Removed Atoms = 117, Flux = 149.56, Rejection = 0.60                                                                     │
+ │    Step 40: Removed Atoms = 120, Flux = 148.61, Rejection = 0.61                                                                     │
+ │    Step 41: Removed Atoms = 123, Flux = 147.56, Rejection = 0.61                                                                     │
+ │    Step 42: Removed Atoms = 126, Flux = 147.10, Rejection = 0.61                                                                     │
+ │    Step 43: Removed Atoms = 129, Flux = 159.62, Rejection = 0.61                                                                     │
+ │    Step 44: Removed Atoms = 132, Flux = 162.42, Rejection = 0.61                                                                     │
+ │    Step 45: Removed Atoms = 135, Flux = 162.23, Rejection = 0.61                                                                     │
+ │    Step 46: Removed Atoms = 138, Flux = 161.52, Rejection = 0.61                                                                     │
+ │    Step 47: Removed Atoms = 141, Flux = 162.58, Rejection = 0.61                                                                     │
+ │    Step 48: Removed Atoms = 144, Flux = 165.98, Rejection = 0.61                                                                     │
+ │    Step 49: Removed Atoms = 147, Flux = 157.71, Rejection = 0.62                                                                     │
+ │    Step 50: Removed Atoms = 150, Flux = 161.43, Rejection = 0.60                                                                     │
+ │    Design process complete. Log saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv                        │
+ │    GIF saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif                                                   │
+ │                                                                                                                                      │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ The graphene nanopore design simulation has been successfully completed.
+
+
+   - The simulation ran for 50 steps, iteratively removing carbon atoms to form nanopores.
+   - Water flux gradually increased, and ion rejection was maintained above the specified minimum.
+   - A detailed log of each step, including removed atom count, flux, rejection, and atom indices, has been saved to
+     /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv.
+   - A GIF visualizing the pore evolution has been saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif.
+
+
+  The core requirements of the task have been met.
+
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│  > Do it in 30 steps and remove 3 atoms in each steps using different trials from closest neighborhood atoms and colonize the pore size  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Edit graphene_designer.py: MAX_REMOVALS = 150 => MAX_REMOVALS = 90                                                                │
+ │                                                                                                                                      │
+ │    18     GIF_PATH = os.path.join(IMG_DIR, "single_atom_chain.gif")                                                                  │
+ │    19     MAX_REJECTION = 1.0                                                                                                        │
+ │    20     MIN_REJECTION = 0.60                                                                                                       │
+ │    21   - MAX_REMOVALS = 150 # Changed to 150 to allow for 50 steps * 3 atoms/step                                                   │
+ │    21   + MAX_REMOVALS = 90 # Changed to 150 to allow for 50 steps * 3 atoms/step                                                    │
+ │    22     TRIALS_PER_STEP = 10                                                                                                       │
+ │    23     N_ATOMS_PER_TRIAL = 3                                                                                                      │
+ │    24     LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation with 30 steps.)  │
+ │                                                                                                                                              │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is              │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                     │
+ │      warnings.warn(                                                                                                                          │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight              │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to            │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date          │
+ │    weights.                                                                                                                                  │
+ │      warnings.warn(msg)                                                                                                                      │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:84: FutureWarning: You are using `torch.load` with                             │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct            │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                            │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default             │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                   │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via             │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have          │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                      │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                              │
+ │    Exception ignored in: <function Image.__del__ at 0x7f8ce13b3700>                                                                          │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 4017, in __del__                                                  │
+ │        self.tk.call('image', 'delete', self.name)                                                                                            │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Image.__del__ at 0x7f8ce13b3700>                                                                          │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 4017, in __del__                                                  │
+ │        self.tk.call('image', 'delete', self.name)                                                                                            │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Exception ignored in: <function Variable.__del__ at 0x7f8ce13f8dc0>                                                                       │
+ │    Traceback (most recent call last):                                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/tkinter/__init__.py", line 363, in __del__                                                   │
+ │        if self._tk.getboolean(self._tk.call("info", "exists", self._name)):                                                                  │
+ │    RuntimeError: main thread is not in main loop                                                                                             │
+ │    Tcl_AsyncDelete: async handler deleted by the wrong thread                                                                                │
+ │    bash: line 1: 2647730 Aborted                 (core dumped) python /home/akshay/Documents/MD/test_gemini/graphene_designer.py             │
+ │                                                                                                                                              │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to graphene_designer.py                                                                                         │
+ │                                                                                                                                      │
+ │    1    + import matplotlib                                                                                                          │
+ │    2    + matplotlib.use('Agg') # Use a non-interactive backend                                                                      │
+ │    3      import numpy as np                                                                                                         │
+ │    4      import pandas as pd                                                                                                        │
+ │    5      import torch                                                                                                               │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    20     GIF_PATH = os.path.join(IMG_DIR, "single_atom_chain.gif")                                                                  │
+ │    21     MAX_REJECTION = 1.0                                                                                                        │
+ │    22     MIN_REJECTION = 0.60                                                                                                       │
+ │    21   - MAX_REMOVALS = 90 # Changed to 150 to allow for 50 steps * 3 atoms/step                                                    │
+ │    23   + MAX_REMOVALS = 90 # Changed to 90 for 30 steps * 3 atoms/step                                                              │
+ │    24     TRIALS_PER_STEP = 10                                                                                                       │
+ │    25     N_ATOMS_PER_TRIAL = 3                                                                                                      │
+ │    26     LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    179    # Build KDTree for efficient nearest neighbor search                                                                       │
+ │    180    tree = cKDTree(xy_coords)                                                                                                  │
+ │    181                                                                                                                               │
+ │    180  - # Main loop for 50 steps                                                                                                   │
+ │    181  - for step in range(1, 51):                                                                                                  │
+ │    182  + # Main loop for 30 steps                                                                                                   │
+ │    183  + for step in range(1, 31):                                                                                                  │
+ │    184        best_flux_trial = -1.0                                                                                                 │
+ │    185        best_rejection_trial = -1.0                                                                                            │
+ │    186        best_trial_removed_atoms = current_removed_atoms.copy()                                                                │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation with 30 steps.)  │
+ │                                                                                                                                              │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is              │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                     │
+ │      warnings.warn(                                                                                                                          │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight              │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to            │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date          │
+ │    weights.                                                                                                                                  │
+ │      warnings.warn(msg)                                                                                                                      │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:86: FutureWarning: You are using `torch.load` with                             │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct            │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                            │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default             │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                   │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via             │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have          │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                      │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                              │
+ │    Step 0: Initial Flux = 12.05, Rejection = 0.94                                                                                            │
+ │    Step 1: Removed Atoms = 3, Flux = 22.00, Rejection = 0.92                                                                                 │
+ │    Step 2: Removed Atoms = 6, Flux = 29.06, Rejection = 0.91                                                                                 │
+ │    Step 3: Removed Atoms = 9, Flux = 33.92, Rejection = 0.90                                                                                 │
+ │    Step 4: Removed Atoms = 12, Flux = 47.17, Rejection = 0.80                                                                                │
+ │    Step 5: Removed Atoms = 15, Flux = 50.20, Rejection = 0.78                                                                                │
+ │    Step 6: Removed Atoms = 18, Flux = 54.46, Rejection = 0.76                                                                                │
+ │    Step 7: Removed Atoms = 21, Flux = 57.86, Rejection = 0.73                                                                                │
+ │    Step 8: Removed Atoms = 24, Flux = 68.97, Rejection = 0.71                                                                                │
+ │    Step 9: Removed Atoms = 27, Flux = 79.53, Rejection = 0.69                                                                                │
+ │    Step 10: Removed Atoms = 30, Flux = 88.26, Rejection = 0.67                                                                               │
+ │    Step 11: Removed Atoms = 33, Flux = 92.29, Rejection = 0.63                                                                               │
+ │    Step 12: Removed Atoms = 36, Flux = 104.92, Rejection = 0.62                                                                              │
+ │    Step 13: Removed Atoms = 39, Flux = 119.65, Rejection = 0.60                                                                              │
+ │    Step 14: Removed Atoms = 42, Flux = 126.17, Rejection = 0.60                                                                              │
+ │    Step 15: Removed Atoms = 45, Flux = 127.80, Rejection = 0.60                                                                              │
+ │    Step 16: Removed Atoms = 48, Flux = 132.96, Rejection = 0.60                                                                              │
+ │    Step 17: Removed Atoms = 51, Flux = 132.75, Rejection = 0.61                                                                              │
+ │    Step 18: Removed Atoms = 54, Flux = 131.51, Rejection = 0.62                                                                              │
+ │    Step 19: Removed Atoms = 57, Flux = 131.53, Rejection = 0.63                                                                              │
+ │    Step 20: Removed Atoms = 60, Flux = 129.12, Rejection = 0.62                                                                              │
+ │    Step 21: Removed Atoms = 63, Flux = 132.60, Rejection = 0.63                                                                              │
+ │    Step 22: Removed Atoms = 66, Flux = 132.38, Rejection = 0.61                                                                              │
+ │    Step 23: Removed Atoms = 69, Flux = 133.45, Rejection = 0.60                                                                              │
+ │    Step 24: Removed Atoms = 72, Flux = 133.94, Rejection = 0.61                                                                              │
+ │    Step 25: Removed Atoms = 75, Flux = 137.71, Rejection = 0.61                                                                              │
+ │    Step 26: Removed Atoms = 78, Flux = 135.68, Rejection = 0.61                                                                              │
+ │    Step 27: Removed Atoms = 81, Flux = 138.76, Rejection = 0.62                                                                              │
+ │    Step 28: Removed Atoms = 84, Flux = 132.33, Rejection = 0.62                                                                              │
+ │    Step 29: Removed Atoms = 87, Flux = 138.21, Rejection = 0.60                                                                              │
+ │    Step 30: Removed Atoms = 90, Flux = 140.51, Rejection = 0.60                                                                              │
+ │    Design process complete. Log saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv                                │
+ │    GIF saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif                                                           │
+ │                                                                                                                                              │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ The graphene nanopore design simulation has been successfully completed for 30 steps, removing 3 atoms per step.
+
+
+   - The simulation ran for 30 steps, iteratively removing carbon atoms to form nanopores.
+   - Water flux gradually increased, and ion rejection was maintained above the specified minimum.
+   - A detailed log of each step, including removed atom count, flux, rejection, and atom indices, has been saved to
+     /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv.
+   - A GIF visualizing the pore evolution has been saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif.
+
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│  > you can rearrange removing one,two or 3 atoms or do not remove any atoms per each step in trials unless you get the higer flux and   │
+│    maintain better rejection rate. Show 10 trails in the report and image file                                                          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to graphene_designer.py                                                                                         │
+ │                                                                                                                                      │
+ │    22     MIN_REJECTION = 0.60                                                                                                       │
+ │    23     MAX_REMOVALS = 90 # Changed to 90 for 30 steps * 3 atoms/step                                                              │
+ │    24     TRIALS_PER_STEP = 10                                                                                                       │
+ │    25   - N_ATOMS_PER_TRIAL = 3                                                                                                      │
+ │    25   + N_ATOMS_PER_TRIAL_MAX = 3 # Maximum number of atoms to remove per trial                                                    │
+ │    26     LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                │
+ │    27                                                                                                                                │
+ │    28     # Set device                                                                                                               │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    202            # Limit to 30 closest available atoms if more than 30 are found                                                    │
+ │    203            if len(candidate_atoms_for_this_step) > 30:                                                                        │
+ │    204                # Sort by distance to the closest removed atom                                                                 │
+ │    205  -             # Need to calculate min_distances_to_removed for the candidate_atoms_for_this_step only                        │
+ │    206  -             # and ensure current_removed_atoms is not empty                                                                │
+ │    205                if len(current_removed_atoms) > 0:                                                                             │
+ │    206                    min_distances_to_removed = np.min(tree.query(xy_coords[candidate_atoms_for_this_step], k=1,                │
+ │           workers=-1)[0][:, np.newaxis] +                                                                                            │
+ │    207                                                      np.linalg.norm(xy_coords[candidate_atoms_for_this_step, np.newaxis, :]   │
+ │           -                                                                                                                          │
+ │    213                    candidate_atoms_for_this_step = candidate_atoms_for_this_step[:30]                                         │
+ │    214                                                                                                                               │
+ │    215        for trial in range(TRIALS_PER_STEP):                                                                                   │
+ │    218  -         # Select N_ATOMS_PER_TRIAL from candidates, ensuring they are not already removed                                  │
+ │    219  -         num_to_remove = min(N_ATOMS_PER_TRIAL, len(candidate_atoms_for_this_step))                                         │
+ │    216  +         # Randomly decide how many atoms to remove in this trial (0, 1, 2, or 3)                                           │
+ │    217  +         num_to_remove_this_trial = np.random.randint(0, N_ATOMS_PER_TRIAL_MAX + 1)                                         │
+ │    218                                                                                                                               │
+ │    221  -         if num_to_remove == 0:                                                                                             │
+ │    219  +         # Ensure we don't try to remove more atoms than available candidates                                               │
+ │    220  +         num_to_remove_this_trial = min(num_to_remove_this_trial, len(candidate_atoms_for_this_step))                       │
+ │    221  +                                                                                                                            │
+ │    222  +         if num_to_remove_this_trial == 0:                                                                                  │
+ │    223                atoms_to_remove_this_trial = np.array([], dtype=int)                                                           │
+ │    224            else:                                                                                                              │
+ │    224  -             atoms_to_remove_this_trial = np.random.choice(candidate_atoms_for_this_step, num_to_remove, replace=False)     │
+ │    225  +             atoms_to_remove_this_trial = np.random.choice(candidate_atoms_for_this_step, num_to_remove_this_trial,         │
+ │           replace=False)                                                                                                             │
+ │    226                                                                                                                               │
+ │    227            trial_removed_atoms = np.unique(np.concatenate((current_removed_atoms, atoms_to_remove_this_trial))).astype(int)   │
+ │    228                                                                                                                               │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to graphene_designer.py                                                                                         │
+ │                                                                                                                                      │
+ │    24     TRIALS_PER_STEP = 10                                                                                                       │
+ │    25     N_ATOMS_PER_TRIAL_MAX = 3 # Maximum number of atoms to remove per trial                                                    │
+ │    26     LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                │
+ │    27   + TRIAL_LOG_FILE = os.path.join(IMG_DIR, "graphene_design_trials_log.csv")                                                   │
+ │    28                                                                                                                                │
+ │    29     # Set device                                                                                                               │
+ │    30     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")                                                      │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    154    current_removed_atoms = np.array([], dtype=int) # Stores indices of removed atoms                                          │
+ │    155    all_removed_atoms_history = [] # To store removed atoms for GIF                                                            │
+ │    156    log_data = []                                                                                                              │
+ │    157  + trial_log_data = [] # New list to store all trial data                                                                     │
+ │    158                                                                                                                               │
+ │    159    # Step 0: Initial state (no atoms removed)                                                                                 │
+ │    160    step_0_image_path = generate_mock_image(current_removed_atoms, 0)                                                          │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    236            trial_flux = trial_predictions['flux']                                                                             │
+ │    237            trial_rejection = trial_predictions['rejection']                                                                   │
+ │    238                                                                                                                               │
+ │    237  -         # Evaluate trial                                                                                                   │
+ │    239  +         # Log data for each trial                                                                                          │
+ │    240  +         trial_log_entry = {                                                                                                │
+ │    241  +             "step": step,                                                                                                  │
+ │    242  +             "trial": trial,                                                                                                │
+ │    243  +             "removed_atoms_count": len(trial_removed_atoms),                                                               │
+ │    244  +             "flux": trial_flux,                                                                                            │
+ │    245  +             "rejection": trial_rejection,                                                                                  │
+ │    246  +             "removed_atoms_indices": trial_removed_atoms.tolist()                                                          │
+ │    247  +         }                                                                                                                  │
+ │    248  +         trial_log_data.append(trial_log_entry)                                                                             │
+ │    249  +                                                                                                                            │
+ │    250  +         # Evaluate trial for best in step                                                                                  │
+ │    251            if trial_rejection >= MIN_REJECTION:                                                                               │
+ │    252                if trial_flux > best_flux_trial:                                                                               │
+ │    253                    best_flux_trial = trial_flux                                                                               │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    273    log_df = pd.DataFrame(log_data)                                                                                            │
+ │    274    log_df.to_csv(LOG_FILE, index=False)                                                                                       │
+ │    275                                                                                                                               │
+ │    263  - print(f"Design process complete. Log saved to {LOG_FILE}")                                                                 │
+ │    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════  │
+ │    276  + trial_log_df = pd.DataFrame(trial_log_data)                                                                                │
+ │    277  + trial_log_df.to_csv(TRIAL_LOG_FILE, index=False)                                                                           │
+ │    278                                                                                                                               │
+ │    279  + print(f"Design process complete. Step log saved to {LOG_FILE} and Trial log saved to {TRIAL_LOG_FILE}")                    │
+ │    280  +                                                                                                                            │
+ │    281    # Generate GIF (requires imageio and Pillow)                                                                               │
+ │    282    try:                                                                                                                       │
+ │    283        images = []                                                                                                            │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation with variable ato… │
+ │                                                                                                                                                │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is                │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                       │
+ │      warnings.warn(                                                                                                                            │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight                │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to              │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date            │
+ │    weights.                                                                                                                                    │
+ │      warnings.warn(msg)                                                                                                                        │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:87: FutureWarning: You are using `torch.load` with                               │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct              │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                              │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default               │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                     │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via               │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have            │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                        │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                                │
+ │    Step 0: Initial Flux = 12.05, Rejection = 0.94                                                                                              │
+ │    Could not plot convex hull: QH6154 Qhull precision error: Initial simplex is flat (facet 1 is coplanar with the interior point)             │
+ │                                                                                                                                                │
+ │    While executing:  | qhull i Qt                                                                                                              │
+ │    Options selected for Qhull 2019.1.r 2019/06/21:                                                                                             │
+ │      run-id 1617103642  incidence  Qtriangulate  _pre-merge  _zero-centrum                                                                     │
+ │      _max-width 3.7  Error-roundoff 2e-14  _one-merge 1e-13  _near-inside 5e-13                                                                │
+ │      Visible-distance 4e-14  U-max-coplanar 4e-14  Width-outside 8e-14                                                                         │
+ │      _wide-facet 2.4e-13  _maxoutside 1.2e-13                                                                                                  │
+ │                                                                                                                                                │
+ │    The input to qhull appears to be less than 2 dimensional, or a                                                                              │
+ │    computation has overflowed.                                                                                                                 │
+ │                                                                                                                                                │
+ │    Qhull could not construct a clearly convex simplex from points:                                                                             │
+ │    - p1(v3):    22    19                                                                                                                       │
+ │    - p2(v2):    23    20                                                                                                                       │
+ │    - p0(v1):    20    18                                                                                                                       │
+ │                                                                                                                                                │
+ │    The center point is coplanar with a facet, or a vertex is coplanar                                                                          │
+ │    with a neighboring facet.  The maximum round off error for                                                                                  │
+ │    computing distances is 2e-14.  The center point, facets and distances                                                                       │
+ │    to the center point are as follows:                                                                                                         │
+ │                                                                                                                                                │
+ │    center point    21.69    18.91                                                                                                              │
+ │                                                                                                                                                │
+ │    facet p2 p0 distance=    0                                                                                                                  │
+ │    facet p1 p0 distance= -3.6e-15                                                                                                              │
+ │    facet p1 p2 distance= -3.6e-15                                                                                                              │
+ │                                                                                                                                                │
+ │    These points either have a maximum or minimum x-coordinate, or                                                                              │
+ │    they maximize the determinant for k coordinates.  Trial points                                                                              │
+ │    are first selected from points that maximize a coordinate.                                                                                  │
+ │                                                                                                                                                │
+ │    The min and max coordinates for each dimension are:                                                                                         │
+ │      0:     19.65     23.33  difference= 3.684                                                                                                 │
+ │      1:     17.73     19.85  difference= 2.127                                                                                                 │
+ │                                                                                                                                                │
+ │    If the input should be full dimensional, you have several options that                                                                      │
+ │    may determine an initial simplex:                                                                                                           │
+ │      - use 'QJ'  to joggle the input and make it full dimensional                                                                              │
+ │      - use 'QbB' to scale the points to the unit cube                                                                                          │
+ │      - use 'QR0' to randomly rotate the input for different maximum points                                                                     │
+ │      - use 'Qs'  to search all points for the initial simplex                                                                                  │
+ │      - use 'En'  to specify a maximum roundoff error less than 2e-14.                                                                          │
+ │      - trace execution with 'T3' to see the determinant for each point.                                                                        │
+ │                                                                                                                                                │
+ │    If the input is lower dimensional:                                                                                                          │
+ │      - use 'QJ' to joggle the input and make it full dimensional                                                                               │
+ │      - use 'Qbk:0Bk:0' to delete coordinate k from the input.  You should                                                                      │
+ │        pick the coordinate with the least range.  The hull will have the                                                                       │
+ │        correct topology.                                                                                                                       │
+ │      - determine the flat containing the points, rotate the points                                                                             │
+ │        into a coordinate plane, and delete the other coordinates.                                                                              │
+ │      - add one or more points to make the input full dimensional.                                                                              │
+ │                                                                                                                                                │
+ │    Step 1: Removed Atoms = 3, Flux = 18.73, Rejection = 0.94                                                                                   │
+ │    Step 2: Removed Atoms = 5, Flux = 28.15, Rejection = 0.89                                                                                   │
+ │    Step 3: Removed Atoms = 6, Flux = 30.20, Rejection = 0.89                                                                                   │
+ │    Step 4: Removed Atoms = 7, Flux = 39.08, Rejection = 0.87                                                                                   │
+ │    Step 5: Removed Atoms = 10, Flux = 45.20, Rejection = 0.89                                                                                  │
+ │    Step 6: Removed Atoms = 11, Flux = 47.64, Rejection = 0.87                                                                                  │
+ │    Step 7: Removed Atoms = 14, Flux = 52.44, Rejection = 0.83                                                                                  │
+ │    Step 8: Removed Atoms = 15, Flux = 56.81, Rejection = 0.83                                                                                  │
+ │    Step 9: Removed Atoms = 17, Flux = 57.69, Rejection = 0.83                                                                                  │
+ │    Step 10: Removed Atoms = 17, Flux = 57.69, Rejection = 0.83                                                                                 │
+ │    Step 11: Removed Atoms = 17, Flux = 57.69, Rejection = 0.83                                                                                 │
+ │    Step 12: Removed Atoms = 19, Flux = 68.61, Rejection = 0.80                                                                                 │
+ │    Step 13: Removed Atoms = 19, Flux = 68.61, Rejection = 0.80                                                                                 │
+ │    Step 14: Removed Atoms = 21, Flux = 70.94, Rejection = 0.79                                                                                 │
+ │    Step 15: Removed Atoms = 22, Flux = 71.43, Rejection = 0.78                                                                                 │
+ │    Step 16: Removed Atoms = 22, Flux = 71.43, Rejection = 0.78                                                                                 │
+ │    Step 17: Removed Atoms = 23, Flux = 74.03, Rejection = 0.78                                                                                 │
+ │    Step 18: Removed Atoms = 25, Flux = 82.24, Rejection = 0.74                                                                                 │
+ │    Step 19: Removed Atoms = 28, Flux = 86.30, Rejection = 0.70                                                                                 │
+ │    Step 20: Removed Atoms = 28, Flux = 86.30, Rejection = 0.70                                                                                 │
+ │    Step 21: Removed Atoms = 30, Flux = 86.36, Rejection = 0.71                                                                                 │
+ │    Step 22: Removed Atoms = 32, Flux = 92.07, Rejection = 0.72                                                                                 │
+ │    Step 23: Removed Atoms = 35, Flux = 92.24, Rejection = 0.68                                                                                 │
+ │    Step 24: Removed Atoms = 36, Flux = 92.35, Rejection = 0.68                                                                                 │
+ │    Step 25: Removed Atoms = 39, Flux = 98.12, Rejection = 0.68                                                                                 │
+ │    Step 26: Removed Atoms = 40, Flux = 100.54, Rejection = 0.68                                                                                │
+ │    Step 27: Removed Atoms = 41, Flux = 100.98, Rejection = 0.68                                                                                │
+ │    Step 28: Removed Atoms = 42, Flux = 102.78, Rejection = 0.68                                                                                │
+ │    Step 29: Removed Atoms = 42, Flux = 102.78, Rejection = 0.68                                                                                │
+ │    Step 30: Removed Atoms = 43, Flux = 104.16, Rejection = 0.68                                                                                │
+ │    Design process complete. Step log saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv and Trial log               │
+ │    saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_trials_log.csv                                                        │
+ │    GIF saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif                                                             │
+ │                                                                                                                                                │
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ The graphene nanopore design simulation has been successfully completed with the requested modifications.
+
+
+   - The simulation ran for 30 steps.
+   - In each step, trials were conducted by removing 0, 1, 2, or 3 atoms from the closest neighborhood, prioritizing higher flux while
+     maintaining the rejection rate.
+   - A detailed log of each step's best result is saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv.
+   - A comprehensive log of all 10 trials per step, including their flux, rejection, and removed atoms, is saved to
+     /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_trials_log.csv.
+   - Image files for each trial (step_X_trial_Y.png) have been generated in the gemini directory, and a GIF visualizing the pore evolution is
+     saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif.
+
+╭───────────────────────────────────────────────────────────╮
+│  > change the atom color to white and remove convex hull  │
+╰───────────────────────────────────────────────────────────╯
+
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Edit graphene_designer.py:         plt.scatter(xy_coords[... =>         plt.scatter(xy_coords[...                                 │
+ │                                                                                                                                      │
+ │    134    valid_atom_ids = atom_ids[atom_ids < len(xy_coords)]                                                                       │
+ │    135                                                                                                                               │
+ │    136    if len(valid_atom_ids) > 0:                                                                                                │
+ │    137  -     plt.scatter(xy_coords[valid_atom_ids, 0], xy_coords[valid_atom_ids, 1], s=30, c='red')                                 │
+ │    138  -     # Plot convex hull if enough points                                                                                    │
+ │    139  -     if len(valid_atom_ids) >= 3:                                                                                           │
+ │    140  -         try:                                                                                                               │
+ │    141  -             hull = ConvexHull(xy_coords[valid_atom_ids])                                                                   │
+ │    142  -             for simplex in hull.simplices:                                                                                 │
+ │    143  -                 plt.plot(xy_coords[valid_atom_ids][simplex, 0], xy_coords[valid_atom_ids][simplex, 1], 'r-', linewidth=2)  │
+ │    144  -         except Exception as e:                                                                                             │
+ │    145  -             print(f"Could not plot convex hull: {e}")                                                                      │
+ │    137  +     plt.scatter(xy_coords[valid_atom_ids, 0], xy_coords[valid_atom_ids, 1], s=30, c='white')                               │
+ │    138                                                                                                                               │
+ │    139    plt.axis('off')                                                                                                            │
+ │    140    plt.gca().set_aspect('equal', adjustable='box')                                                                            │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation with white remove… │
+ │                                                                                                                                                │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is                │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                       │
+ │      warnings.warn(                                                                                                                            │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight                │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to              │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date            │
+ │    weights.                                                                                                                                    │
+ │      warnings.warn(msg)                                                                                                                        │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:87: FutureWarning: You are using `torch.load` with                               │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct              │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                              │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default               │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                     │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via               │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have            │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                        │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                                │
+ │    Step 0: Initial Flux = 12.05, Rejection = 0.94                                                                                              │
+ │    Step 1: Removed Atoms = 2, Flux = 12.18, Rejection = 0.94                                                                                   │
+ │    Step 2: Removed Atoms = 5, Flux = 12.53, Rejection = 0.94                                                                                   │
+ │    Step 3: Removed Atoms = 8, Flux = 13.62, Rejection = 0.94                                                                                   │
+ │    Step 4: Removed Atoms = 11, Flux = 15.60, Rejection = 0.94                                                                                  │
+ │    Step 5: Removed Atoms = 14, Flux = 16.61, Rejection = 0.94                                                                                  │
+ │    Step 6: Removed Atoms = 16, Flux = 20.62, Rejection = 0.94                                                                                  │
+ │    Step 7: Removed Atoms = 18, Flux = 25.92, Rejection = 0.94                                                                                  │
+ │    Step 8: Removed Atoms = 21, Flux = 29.27, Rejection = 0.94                                                                                  │
+ │    Step 9: Removed Atoms = 24, Flux = 35.22, Rejection = 0.94                                                                                  │
+ │    Step 10: Removed Atoms = 27, Flux = 60.66, Rejection = 0.90                                                                                 │
+ │    Step 11: Removed Atoms = 30, Flux = 72.12, Rejection = 0.89                                                                                 │
+ │    Step 12: Removed Atoms = 33, Flux = 85.33, Rejection = 0.88                                                                                 │
+ │    Step 13: Removed Atoms = 36, Flux = 104.31, Rejection = 0.89                                                                                │
+ │    Step 14: Removed Atoms = 39, Flux = 131.86, Rejection = 0.86                                                                                │
+ │    Step 15: Removed Atoms = 40, Flux = 148.15, Rejection = 0.68                                                                                │
+ │    Step 16: Removed Atoms = 43, Flux = 150.34, Rejection = 0.61                                                                                │
+ │    Step 17: Removed Atoms = 44, Flux = 150.72, Rejection = 0.61                                                                                │
+ │    Step 18: Removed Atoms = 46, Flux = 152.17, Rejection = 0.61                                                                                │
+ │    Step 19: Removed Atoms = 48, Flux = 154.32, Rejection = 0.60                                                                                │
+ │    Step 20: Removed Atoms = 50, Flux = 158.06, Rejection = 0.60                                                                                │
+ │    Step 21: Removed Atoms = 51, Flux = 158.97, Rejection = 0.60                                                                                │
+ │    Step 22: Removed Atoms = 51, Flux = 158.97, Rejection = 0.60                                                                                │
+ │    Step 23: Removed Atoms = 52, Flux = 161.61, Rejection = 0.60                                                                                │
+ │    Step 24: Removed Atoms = 53, Flux = 163.43, Rejection = 0.60                                                                                │
+ │    Step 25: Removed Atoms = 53, Flux = 163.43, Rejection = 0.60                                                                                │
+ │    Step 26: Removed Atoms = 56, Flux = 168.40, Rejection = 0.61                                                                                │
+ │    Step 27: Removed Atoms = 57, Flux = 170.01, Rejection = 0.60                                                                                │
+ │    Step 28: Removed Atoms = 57, Flux = 170.01, Rejection = 0.60                                                                                │
+ │    Step 29: Removed Atoms = 59, Flux = 170.03, Rejection = 0.60                                                                                │
+ │    Step 30: Removed Atoms = 60, Flux = 170.29, Rejection = 0.60                                                                                │
+ │    Design process complete. Step log saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv and Trial log               │
+ │    saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_trials_log.csv                                                        │
+ │    GIF saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif                                                             │
+ │                                                                                                                                                │
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ The atom color has been changed to white and the convex hull plotting has been removed. The simulation has been re-run with these changes.
+
+
+   - The removed atoms are now displayed in white.
+   - The convex hull outline around the removed atoms is no longer plotted.
+   - The simulation ran for 30 steps, with variable atom removal per trial.
+   - The step log is saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv.
+   - The trial log is saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_trials_log.csv.
+   - The GIF visualizing the pore evolution is saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif.
+
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│  > The results and images are perfect. save the log file in the same directory. create water flux vs removed atoms plot. ion rejection vs   │
+│    removed atoms plot. create plot that left side is water flux , right side is ion rejection and horizental is the steps.                  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to plot_results.py                                                                                              │
+ │                                                                                                                                      │
+ │     1 import pandas as pd                                                                                                            │
+ │     2 import matplotlib.pyplot as plt                                                                                                │
+ │     3 import os                                                                                                                      │
+ │     4                                                                                                                                │
+ │     5 IMG_DIR = "/home/akshay/Documents/MD/test_gemini/gemini"                                                                       │
+ │     6 LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                    │
+ │     7                                                                                                                                │
+ │     8 # Load the log data                                                                                                            │
+ │     9 df = pd.read_csv(LOG_FILE)                                                                                                     │
+ │    10                                                                                                                                │
+ │    11 # Plot 1: Water Flux vs Removed Atoms                                                                                          │
+ │    12 plt.figure(figsize=(10, 6))                                                                                                    │
+ │    13 plt.plot(df['removed_atoms_count'], df['flux'], marker='o', linestyle='-', color='blue')                                       │
+ │    14 plt.xlabel('Number of Removed Atoms')                                                                                          │
+ │    15 plt.ylabel('Water Flux')                                                                                                       │
+ │    16 plt.title('Water Flux vs. Number of Removed Atoms')                                                                            │
+ │    17 plt.grid(True)                                                                                                                 │
+ │    18 plt.tight_layout()                                                                                                             │
+ │    19 plt.savefig(os.path.join(IMG_DIR, 'flux_vs_removed_atoms.png'))                                                                │
+ │    20 plt.close()                                                                                                                    │
+ │    21                                                                                                                                │
+ │    22 # Plot 2: Ion Rejection vs Removed Atoms                                                                                       │
+ │    23 plt.figure(figsize=(10, 6))                                                                                                    │
+ │    24 plt.plot(df['removed_atoms_count'], df['rejection'], marker='o', linestyle='-', color='green')                                 │
+ │    25 plt.xlabel('Number of Removed Atoms')                                                                                          │
+ │    26 plt.ylabel('Ion Rejection')                                                                                                    │
+ │    27 plt.title('Ion Rejection vs. Number of Removed Atoms')                                                                         │
+ │    28 plt.grid(True)                                                                                                                 │
+ │    29 plt.tight_layout()                                                                                                             │
+ │    30 plt.savefig(os.path.join(IMG_DIR, 'rejection_vs_removed_atoms.png'))                                                           │
+ │    31 plt.close()                                                                                                                    │
+ │    32                                                                                                                                │
+ │    33 # Plot 3: Water Flux and Ion Rejection vs Steps                                                                                │
+ │    34 fig, ax1 = plt.subplots(figsize=(12, 7))                                                                                       │
+ │    35                                                                                                                                │
+ │    36 color = 'tab:blue'                                                                                                             │
+ │    37 ax1.set_xlabel('Steps')                                                                                                        │
+ │    38 ax1.set_ylabel('Water Flux', color=color)                                                                                      │
+ │    39 ax1.plot(df['step'], df['flux'], marker='o', linestyle='-', color=color, label='Water Flux')                                   │
+ │    40 ax1.tick_params(axis='y', labelcolor=color)                                                                                    │
+ │    41 ax1.grid(True)                                                                                                                 │
+ │    42                                                                                                                                │
+ │    43 ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis                                                     │
+ │    44                                                                                                                                │
+ │    45 color = 'tab:green'                                                                                                            │
+ │    46 ax2.set_ylabel('Ion Rejection', color=color)  # we already handled the x-label with ax1                                        │
+ │    47 ax2.plot(df['step'], df['rejection'], marker='x', linestyle='--', color=color, label='Ion Rejection')                          │
+ │    48 ax2.tick_params(axis='y', labelcolor=color)                                                                                    │
+ │    49                                                                                                                                │
+ │    50 fig.tight_layout()  # otherwise the right y-label is slightly clipped                                                          │
+ │    51 plt.title('Water Flux and Ion Rejection vs. Steps')                                                                            │
+ │    52 fig.legend(loc="upper left", bbox_to_anchor=(0.1, 0.9))                                                                        │
+ │    53 plt.savefig(os.path.join(IMG_DIR, 'flux_rejection_vs_steps.png'))                                                              │
+ │    54 plt.close()                                                                                                                    │
+ │    55                                                                                                                                │
+ │    56 print(f"Plots saved to {IMG_DIR}")                                                                                             │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/plot_results.py (Generate plots from the simulation log file.)                 │
+ │                                                                                                                                      │
+ │    Traceback (most recent call last):                                                                                                │
+ │      File "/home/akshay/Documents/MD/test_gemini/plot_results.py", line 9, in <module>                                               │
+ │        df = pd.read_csv(LOG_FILE)                                                                                                    │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/util/_decorators.py", line 211, in wrapper                      │
+ │        return func(*args, **kwargs)                                                                                                  │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/util/_decorators.py", line 331, in wrapper                      │
+ │        return func(*args, **kwargs)                                                                                                  │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 950, in read_csv                   │
+ │        return _read(filepath_or_buffer, kwds)                                                                                        │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 605, in _read                      │
+ │        parser = TextFileReader(filepath_or_buffer, **kwds)                                                                           │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1442, in __init__                  │
+ │        self._engine = self._make_engine(f, self.engine)                                                                              │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1735, in _make_engine              │
+ │        self.handles = get_handle(                                                                                                    │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/pandas/io/common.py", line 856, in get_handle                          │
+ │        handle = open(                                                                                                                │
+ │    FileNotFoundError: [Errno 2] No such file or directory: '/home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv'    │
+ │                                                                                                                                      │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation to generate the l… │
+ │                                                                                                                                                │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is                │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                       │
+ │      warnings.warn(                                                                                                                            │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight                │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to              │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date            │
+ │    weights.                                                                                                                                    │
+ │      warnings.warn(msg)                                                                                                                        │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:87: FutureWarning: You are using `torch.load` with                               │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct              │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                              │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default               │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                     │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via               │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have            │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                        │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                                │
+ │    Traceback (most recent call last):                                                                                                          │
+ │      File "/home/akshay/Documents/MD/test_gemini/graphene_designer.py", line 152, in <module>                                                  │
+ │        step_0_image_path = generate_mock_image(current_removed_atoms, 0)                                                                       │
+ │      File "/home/akshay/Documents/MD/test_gemini/graphene_designer.py", line 141, in generate_mock_image                                       │
+ │        plt.savefig(path, dpi=100)                                                                                                              │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/pyplot.py", line 1023, in savefig                                     │
+ │        res = fig.savefig(*args, **kwargs)                                                                                                      │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/figure.py", line 3378, in savefig                                     │
+ │        self.canvas.print_figure(fname, **kwargs)                                                                                               │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/backend_bases.py", line 2366, in print_figure                         │
+ │        result = print_method(                                                                                                                  │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>                             │
+ │        print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(                                                                      │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png                      │
+ │        self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)                                                                           │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py", line 458, in _print_pil                     │
+ │        mpl.image.imsave(                                                                                                                       │
+ │      File "/home/akshay/anaconda3/lib/python3.8/site-packages/matplotlib/image.py", line 1689, in imsave                                       │
+ │        image.save(fname, **pil_kwargs)                                                                                                         │
+ │      File "/home/akshay/.local/lib/python3.8/site-packages/PIL/Image.py", line 2563, in save                                                   │
+ │        fp = builtins.open(filename, "w+b")                                                                                                     │
+ │    FileNotFoundError: [Errno 2] No such file or directory: '/home/akshay/Documents/MD/test_gemini/gemini/step_0.png'                           │
+ │                                                                                                                                                │
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to graphene_designer.py                                                                                         │
+ │                                                                                                                                      │
+ │    26     LOG_FILE = os.path.join(IMG_DIR, "graphene_design_log.csv")                                                                │
+ │    27     TRIAL_LOG_FILE = os.path.join(IMG_DIR, "graphene_design_trials_log.csv")                                                   │
+ │    28                                                                                                                                │
+ │    29   + # Ensure IMG_DIR exists                                                                                                    │
+ │    30   + os.makedirs(IMG_DIR, exist_ok=True)                                                                                        │
+ │    31   +                                                                                                                            │
+ │    32     # Set device                                                                                                               │
+ │    33     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")                                                      │
+ │    34                                                                                                                                │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/graphene_designer.py (Execute the graphene nanopore design simulation to generate the l… │
+ │                                                                                                                                                │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is                │
+ │    deprecated since 0.13 and may be removed in the future, please use 'weights' instead.                                                       │
+ │      warnings.warn(                                                                                                                            │
+ │    /home/akshay/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight                │
+ │    enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to              │
+ │    passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date            │
+ │    weights.                                                                                                                                    │
+ │      warnings.warn(msg)                                                                                                                        │
+ │    /home/akshay/Documents/MD/test_gemini/graphene_designer.py:90: FutureWarning: You are using `torch.load` with                               │
+ │    `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct              │
+ │    malicious pickle data which will execute arbitrary code during unpickling (See                                                              │
+ │    https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default               │
+ │    value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling.                     │
+ │    Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via               │
+ │    `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have            │
+ │    full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.                        │
+ │      sd = torch.load(ckpt, map_location=device)                                                                                                │
+ │    Step 0: Initial Flux = 12.05, Rejection = 0.94                                                                                              │
+ │    Step 1: Removed Atoms = 3, Flux = 12.30, Rejection = 0.94                                                                                   │
+ │    Step 2: Removed Atoms = 5, Flux = 12.78, Rejection = 0.94                                                                                   │
+ │    Step 3: Removed Atoms = 8, Flux = 13.62, Rejection = 0.94                                                                                   │
+ │    Step 4: Removed Atoms = 11, Flux = 16.61, Rejection = 0.94                                                                                  │
+ │    Step 5: Removed Atoms = 14, Flux = 23.44, Rejection = 0.94                                                                                  │
+ │    Step 6: Removed Atoms = 16, Flux = 25.42, Rejection = 0.94                                                                                  │
+ │    Step 7: Removed Atoms = 17, Flux = 26.81, Rejection = 0.94                                                                                  │
+ │    Step 8: Removed Atoms = 18, Flux = 28.10, Rejection = 0.94                                                                                  │
+ │    Step 9: Removed Atoms = 21, Flux = 34.50, Rejection = 0.94                                                                                  │
+ │    Step 10: Removed Atoms = 24, Flux = 37.35, Rejection = 0.94                                                                                 │
+ │    Step 11: Removed Atoms = 27, Flux = 72.10, Rejection = 0.91                                                                                 │
+ │    Step 12: Removed Atoms = 30, Flux = 124.69, Rejection = 0.83                                                                                │
+ │    Step 13: Removed Atoms = 33, Flux = 144.98, Rejection = 0.70                                                                                │
+ │    Step 14: Removed Atoms = 34, Flux = 147.00, Rejection = 0.70                                                                                │
+ │    Step 15: Removed Atoms = 37, Flux = 147.99, Rejection = 0.69                                                                                │
+ │    Step 16: Removed Atoms = 39, Flux = 149.56, Rejection = 0.68                                                                                │
+ │    Step 17: Removed Atoms = 42, Flux = 150.53, Rejection = 0.66                                                                                │
+ │    Step 18: Removed Atoms = 43, Flux = 152.43, Rejection = 0.61                                                                                │
+ │    Step 19: Removed Atoms = 44, Flux = 153.21, Rejection = 0.60                                                                                │
+ │    Step 20: Removed Atoms = 45, Flux = 153.27, Rejection = 0.60                                                                                │
+ │    Step 21: Removed Atoms = 45, Flux = 153.27, Rejection = 0.60                                                                                │
+ │    Step 22: Removed Atoms = 47, Flux = 154.00, Rejection = 0.60                                                                                │
+ │    Step 23: Removed Atoms = 47, Flux = 154.00, Rejection = 0.60                                                                                │
+ │    Step 24: Removed Atoms = 49, Flux = 156.87, Rejection = 0.60                                                                                │
+ │    Step 25: Removed Atoms = 50, Flux = 158.68, Rejection = 0.60                                                                                │
+ │    Step 26: Removed Atoms = 50, Flux = 158.68, Rejection = 0.60                                                                                │
+ │    Step 27: Removed Atoms = 50, Flux = 158.68, Rejection = 0.60                                                                                │
+ │    Step 28: Removed Atoms = 53, Flux = 159.05, Rejection = 0.61                                                                                │
+ │    Step 29: Removed Atoms = 56, Flux = 161.49, Rejection = 0.60                                                                                │
+ │    Step 30: Removed Atoms = 59, Flux = 162.65, Rejection = 0.60                                                                                │
+ │    Design process complete. Step log saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_log.csv and Trial log               │
+ │    saved to /home/akshay/Documents/MD/test_gemini/gemini/graphene_design_trials_log.csv                                                        │
+ │    GIF saved to /home/akshay/Documents/MD/test_gemini/gemini/single_atom_chain.gif                                                             │
+ │                                                                                                                                                │
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  Shell python /home/akshay/Documents/MD/test_gemini/plot_results.py (Generate plots from the simulation log file.)                 │
+ │                                                                                                                                      │
+ │    Plots saved to /home/akshay/Documents/MD/test_gemini/gemini                                                                       │
+ │                                                                                                                                      │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ The plots have been generated and saved to /home/akshay/Documents/MD/test_gemini/gemini.
+   - flux_vs_removed_atoms.png
+   - rejection_vs_removed_atoms.png
+   - flux_rejection_vs_steps.png
+
+
+  The log files (graphene_design_log.csv and graphene_design_trials_log.csv) are also saved in the same directory.
+
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│  > Great. Give me The final promp scrip as .txt file that whenever I give it as prompt, you generate the same results including images and   │
+│    log files.                                                                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  WriteFile Writing to graphene_designer_full_script.txt                                                                            │
+ │                                                                                                                                      │
+ │    ... first 249 lines hidden ...                                                                                                    │
+ │    249                                                                  xy_coords[current_removed_atoms, :], axis=2), axis=1)        │
+ │    250                 sorted_indices = np.argsort(min_distances_to_removed)                                                         │
+ │    251                 candidate_atoms_for_this_step = candidate_atoms_for_this_step[sorted_indices[:30]]                            │
+ │    252             else:                                                                                                             │
+ │    253                 # Fallback if current_removed_atoms is somehow empty but candidates are many                                  │
+ │    254                 candidate_atoms_for_this_step = candidate_atoms_for_this_step[:30]                                            │
+ │    255                                                                                                                               │
+ │    256     for trial in range(TRIALS_PER_STEP):                                                                                      │
+ │    257         # Randomly decide how many atoms to remove in this trial (0, 1, 2, or 3)                                              │
+ │    258         num_to_remove_this_trial = np.random.randint(0, N_ATOMS_PER_TRIAL_MAX + 1)                                            │
+ │    259                                                                                                                               │
+ │    260         # Ensure we don't try to remove more atoms than available candidates                                                  │
+ │    261         num_to_remove_this_trial = min(num_to_remove_this_trial, len(candidate_atoms_for_this_step))                          │
+ │    262                                                                                                                               │
+ │    263         if num_to_remove_this_trial == 0:                                                                                     │
+ │    264             atoms_to_remove_this_trial = np.array([], dtype=int)                                                              │
+ │    265         else:                                                                                                                 │
+ │    266             atoms_to_remove_this_trial = np.random.choice(candidate_atoms_for_this_step, num_to_remove_this_trial,            │
+ │        replace=False)                                                                                                                │
+ │    267                                                                                                                               │
+ │    268         trial_removed_atoms = np.unique(np.concatenate((current_removed_atoms, atoms_to_remove_this_trial))).astype(int)      │
+ │    269                                                                                                                               │
+ │    270         if len(trial_removed_atoms) > MAX_REMOVALS:                                                                           │
+ │    271             continue # Skip if too many atoms are removed                                                                     │
+ │    272                                                                                                                               │
+ │    273         trial_image_path = generate_mock_image(trial_removed_atoms, step, trial)                                              │
+ │    274         trial_predictions = predict_flux_rejection(trial_image_path)                                                          │
+ │    275         trial_flux = trial_predictions['flux']                                                                                │
+ │    276         trial_rejection = trial_predictions['rejection']                                                                      │
+ │    277                                                                                                                               │
+ │    278         # Log data for each trial                                                                                             │
+ │    279         trial_log_entry = {                                                                                                   │
+ │    280             "step": step,                                                                                                     │
+ │    281             "trial": trial,                                                                                                   │
+ │    282             "removed_atoms_count": len(trial_removed_atoms),                                                                  │
+ │    283             "flux": trial_flux,                                                                                               │
+ │    284             "rejection": trial_rejection,                                                                                     │
+ │    285             "removed_atoms_indices": trial_removed_atoms.tolist()                                                             │
+ │    286         }                                                                                                                     │
+ │    287         trial_log_data.append(trial_log_entry)                                                                                │
+ │    288                                                                                                                               │
+ │    289         # Evaluate trial for best in step                                                                                     │
+ │    290         if trial_rejection >= MIN_REJECTION:                                                                                  │
+ │    291             if trial_flux > best_flux_trial:                                                                                  │
+ │    292                 best_flux_trial = trial_flux                                                                                  │
+ │    293                 best_rejection_trial = trial_rejection                                                                        │
+ │    294                 best_trial_removed_atoms = trial_removed_atoms.copy()                                                         │
+ │    295                                                                                                                               │
+ │    296     # Update for the current step                                                                                             │
+ │    297     current_removed_atoms = best_trial_removed_atoms.copy()                                                                   │
+ │    298     all_removed_atoms_history.append(current_removed_atoms.copy())                                                            │
+ │    299                                                                                                                               │
+ │    300     log_entry = {                                                                                                             │
+ │    301         "step": step,                                                                                                         │
+ │    302         "removed_atoms_count": len(current_removed_atoms),                                                                    │
+ │    303         "flux": best_flux_trial,                                                                                              │
+ │    304         "rejection": best_rejection_trial,                                                                                    │
+ │    305         "removed_atoms_indices": current_removed_atoms.tolist()                                                               │
+ │    306     }                                                                                                                         │
+ │    307     log_data.append(log_entry)                                                                                                │
+ │    308                                                                                                                               │
+ │    309     print(f"Step {step}: Removed Atoms = {len(current_removed_atoms)}, Flux = {best_flux_trial:.2f}, Rejection =              │
+ │        {best_rejection_trial:.2f}")                                                                                                  │
+ │    310                                                                                                                               │
+ │    311 # Save log data to CSV                                                                                                        │
+ │    312 log_df = pd.DataFrame(log_data)                                                                                               │
+ │    313 log_df.to_csv(LOG_FILE, index=False)                                                                                          │
+ │    314                                                                                                                               │
+ │    315 trial_log_df = pd.DataFrame(trial_log_data)                                                                                   │
+ │    316 trial_log_df.to_csv(TRIAL_LOG_FILE, index=False)                                                                              │
+ │    317                                                                                                                               │
+ │    318 print(f"Design process complete. Step log saved to {LOG_FILE} and Trial log saved to {TRIAL_LOG_FILE}")                       │
+ │    319                                                                                                                               │
+ │    320 # Generate GIF (requires imageio and Pillow)                                                                                  │
+ │    321 try:                                                                                                                          │
+ │    322     images = []                                                                                                               │
+ │    323     for i, removed_atoms in enumerate(all_removed_atoms_history):                                                             │
+ │    324         image_path = generate_mock_image(removed_atoms, i)                                                                    │
+ │    325         images.append(imageio.imread(image_path))                                                                             │
+ │    326     imageio.mimsave(GIF_PATH, images, fps=2)                                                                                  │
+ │    327     print(f"GIF saved to {GIF_PATH}")                                                                                         │
+ │    328 except Exception as e:                                                                                                        │
+ │    329     print(f"Error generating GIF: {e}")                                                                                       │
+ │    330                                                                                                                               │
+ │    331 # --- Plotting Script ---                                                                                                     │
+ │    332 # Load the log data                                                                                                           │
+ │    333 df = pd.read_csv(LOG_FILE)                                                                                                    │
+ │    334                                                                                                                               │
+ │    335 # Plot 1: Water Flux vs Removed Atoms                                                                                         │
+ │    336 plt.figure(figsize=(10, 6))                                                                                                   │
+ │    337 plt.plot(df['removed_atoms_count'], df['flux'], marker='o', linestyle='-', color='blue')                                      │
+ │    338 plt.xlabel('Number of Removed Atoms')                                                                                         │
+ │    339 plt.ylabel('Water Flux')                                                                                                      │
+ │    340 plt.title('Water Flux vs. Number of Removed Atoms')                                                                           │
+ │    341 plt.grid(True)                                                                                                                │
+ │    342 plt.tight_layout()                                                                                                            │
+ │    343 plt.savefig(os.path.join(IMG_DIR, 'flux_vs_removed_atoms.png'))                                                               │
+ │    344 plt.close()                                                                                                                   │
+ │    345                                                                                                                               │
+ │    346 # Plot 2: Ion Rejection vs Removed Atoms                                                                                      │
+ │    347 plt.figure(figsize=(10, 6))                                                                                                   │
+ │    348 plt.plot(df['removed_atoms_count'], df['rejection'], marker='o', linestyle='-', color='green')                                │
+ │    349 plt.xlabel('Number of Removed Atoms')                                                                                         │
+ │    350 plt.ylabel('Ion Rejection')                                                                                                   │
+ │    351 plt.title('Ion Rejection vs. Number of Removed Atoms')                                                                        │
+ │    352 plt.grid(True)                                                                                                                │
+ │    353 plt.tight_layout()                                                                                                            │
+ │    354 plt.savefig(os.path.join(IMG_DIR, 'rejection_vs_removed_atoms.png'))                                                          │
+ │    355 plt.close()                                                                                                                   │
+ │    356                                                                                                                               │
+ │    357 # Plot 3: Water Flux and Ion Rejection vs Steps                                                                               │
+ │    358 fig, ax1 = plt.subplots(figsize=(12, 7))                                                                                      │
+ │    359                                                                                                                               │
+ │    360 color = 'tab:blue'                                                                                                            │
+ │    361 ax1.set_xlabel('Steps')                                                                                                       │
+ │    362 ax1.set_ylabel('Water Flux', color=color)                                                                                     │
+ │    363 ax1.plot(df['step'], df['flux'], marker='o', linestyle='-', color=color, label='Water Flux')                                  │
+ │    364 ax1.tick_params(axis='y', labelcolor=color)                                                                                   │
+ │    365 ax1.grid(True)                                                                                                                │
+ │    366                                                                                                                               │
+ │    367 ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis                                                    │
+ │    368                                                                                                                               │
+ │    369 color = 'tab:green'                                                                                                           │
+ │    370 ax2.set_ylabel('Ion Rejection', color=color)  # we already handled the x-label with ax1                                       │
+ │    371 ax2.plot(df['step'], df['rejection'], marker='x', linestyle='--', color=color, label='Ion Rejection')                         │
+ │    372 ax2.tick_params(axis='y', labelcolor=color)                                                                                   │
+ │    373                                                                                                                               │
+ │    374 fig.tight_layout()  # otherwise the right y-label is slightly clipped                                                         │
+ │    375 plt.title('Water Flux and Ion Rejection vs. Steps')                                                                           │
+ │    376 fig.legend(loc="upper left", bbox_to_anchor=(0.1, 0.9))                                                                       │
+ │    377 plt.savefig(os.path.join(IMG_DIR, 'flux_rejection_vs_steps.png'))                                                             │
+ │    378 plt.close()                                                                                                                   │
+ │    379                                                                                                                               │
+ │    380 print(f"Plots saved to {IMG_DIR}")                                                                                            │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ I have created a file named graphene_designer_full_script.txt in your current directory (/home/akshay/Documents/MD/test_gemini/). This file
+  contains the complete Python script that will reproduce the graphene nanopore design simulation, including all image generations and log
+  files, as well as the plotting of the results.
+
+
+  You can use this script by running it with a Python interpreter. Make sure you have all the necessary libraries installed (numpy, pandas,
+  torch, torchvision, PIL, matplotlib, imageio, scipy).
+  
+ ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#######################
+ ##################################################33 
+  This study can be conceptualized as a multi-agent system where different components, some driven by traditional code and others by the large
+  language model (LLM) itself, collaborate to achieve the complex goal of designing optimal graphene nanopores.
+
+  Brief Summary of Each Agent:
+
+   1. The Gemini Model (Orchestrator Agent):
+       * Role: This is the primary interactive agent (myself) that understands natural language commands, plans and executes tasks, manages the
+         file system, modifies code, and orchestrates the entire workflow. I act as the central hub, interpreting user intent and delegating
+         tasks to specialized Python scripts (other "agents" in this framework). I also provide explanations, summaries, and debugging
+         assistance.
+       * Summary: The intelligent interface that translates human instructions into executable computational steps, overseeing the entire design
+         and analysis pipeline.
+
+   2. Graphene Pore Designer Agent (`ozark_inspired_designer.py`):
+       * Role: This is the core scientific simulation agent. It iteratively designs graphene nanopores by removing atoms, evaluates their
+         predicted performance using pre-trained machine learning models, and selects the best pore configuration at each step based on defined
+         criteria (flux, rejection, atom limits). It manages the PDB files, generates images, and logs trial data.
+       * Summary: The specialized computational agent responsible for the iterative, rule-based generation and preliminary evaluation of
+         graphene nanopore structures.
+
+   3. Performance Prediction Agents (Pre-trained ResNet & MLP Models):
+       * Role: These are "oracle" or "expert" agents embedded within the Graphene Pore Designer. They are pre-trained deep learning models
+         (ResNet for image feature extraction, MLPs for flux and rejection prediction) that provide rapid, data-driven feedback on the
+         performance of a given nanopore image. They do not make design decisions but provide the crucial "reward signal" for the design
+         process.
+       * Summary: Passive, pre-trained deep learning models that serve as high-fidelity, rapid evaluators of nanopore performance (water flux
+         and ion rejection) based on visual input.
+
+   4. Multi-Run Simulation Orchestrator Agent (`run_multiple_simulations.py`):
+       * Role: This agent automates the execution of the Graphene Pore Designer multiple times (e.g., 5 runs) to ensure statistical robustness.
+         It collects and aggregates the results from all individual runs, calculates mean and standard deviation for key metrics, and generates
+         comprehensive summary reports and plots.
+       * Summary: The automation agent that manages the execution of multiple design simulations, aggregates their results, and performs
+         statistical analysis to provide a robust overview of the design space.
+
+   5. t-SNE Visualization Agent (`visualize_tsne.py`):
+       * Role: This agent specializes in dimensionality reduction and data visualization. It extracts high-dimensional features from the
+         nanopore images (using the Performance Prediction Agents), applies t-SNE to reduce them to 2D, and generates plots that visually
+         represent the distribution of nanopore designs in the feature space, often colored by their performance metrics.
+       * Summary: The analytical agent focused on transforming complex high-dimensional data into interpretable 2D visualizations, revealing
+         patterns and relationships within the designed nanopore structures.
+
+  In this framework, the Gemini model acts as the "meta-agent" or "human proxy," interacting with the user and orchestrating the specialized
+  "sub-agents" (Python scripts and ML models) to execute the scientific research pipeline. This modular approach allows for complex tasks to
+  be broken down and handled by components best suited for each specific function.
+  
+  
+  
+  Brief Summary of Each Agent:
+
+   1. Agent One: Problem Identifier
+       * Role: This agent is responsible for interpreting the user's high-level scientific problem, clarifying the core objectives, and
+         translating them into a structured computational challenge. It sets the initial scope and direction for the entire study.
+       * Summary: The initial interface that understands and defines the scientific problem, establishing the fundamental goals for the nanopore
+         design.
+
+   2. Agent Two: Analyst Supervisor
+       * Role: This agent orchestrates and manages the execution of the iterative design process across multiple experimental runs. It ensures
+         the robustness and statistical validity of the results by overseeing repeated simulations, collecting raw data from each, and preparing
+         it for comprehensive aggregated analysis. It acts as the quality control and consistency manager for the experimental phase.
+       * Summary: The orchestrating entity that manages and validates the experimental design, ensuring the reliability and statistical
+         significance of the collected data across multiple simulation runs.
+
+   3. Agent Three: Decision Maker
+       * Role: This agent embodies the core design intelligence, making critical choices at each step of the nanopore evolution. It evaluates
+         various trial configurations based on predicted performance metrics (flux, rejection), applies predefined constraints (e.g., atom
+         removal limits, colonization rules), and selects the "best" pore structure to propagate to the next iteration. It effectively
+         implements the learned design policy.
+       * Summary: The intelligent core that iteratively makes design choices, optimizing nanopore structures based on performance predictions
+         and predefined constraints.
+
+   4. Agent Four: Data Analyst
+       * Role: This agent specializes in processing, transforming, and visualizing the raw simulation data into meaningful insights. It performs
+         statistical aggregations (calculating means and standard deviations), generates various types of plots (performance trends, t-SNE
+         embeddings), and organizes the results into structured reports (CSV files). Its primary function is to make complex data comprehensible
+         and interpretable.
+       * Summary: The analytical engine that processes raw simulation outputs, performs statistical analysis, and generates comprehensive
+         visualizations and reports to reveal patterns and trends.
+
+   5. Agent Five: Research Analyst
+       * Role: This agent synthesizes the findings from all other agents, interprets the results within a broader scientific context, identifies
+         key trends, trade-offs, and implications, and provides professional explanations and conclusions. It bridges the gap between raw
+         data/computations and scientific understanding, offering insights, recommendations, and a narrative of the research. This is a role I
+         (the Gemini model) perform when providing detailed scientific explanations.
+       * Summary: The interpretive and communicative entity that synthesizes all findings, provides scientific context, draws conclusions, and
+         articulates the research's significance and implications.
+
+
+The differences between Gemini CLI (as demonstrated in this study) and a model like GPT-4o mini for the kind of scientific study we just
+  completed are fundamental, primarily revolving around their interaction model and operational environment.
+
+  Here's a breakdown:
+
+   1. Core Interaction Model:
+       * Gemini CLI (Agent-based, Interactive Environment): I operate as an interactive agent directly within your command-line environment.
+          This means I have direct access to your file system and can execute shell commands and Python scripts on your machine. My
+         responses are actions taken in that environment, and I maintain state awareness of the project's files and directories across
+         turns.
+       * GPT-4o mini (Text-based, Code Assistant): GPT-4o mini is a text-based language model. It does not have direct access to your local
+         file system or the ability to execute code on your machine. Its interaction model is purely conversational. It generates text,
+         including code snippets, explanations, and instructions, which you then have to manually copy, paste, and execute in your own
+         environment.
+
+   2. Code Execution & Environment:
+       * Gemini CLI: I can directly run Python scripts (e.g., ozark_inspired_designer.py, run_multiple_simulations.py, visualize_tsne.py)
+         and shell commands (cp, python script.py). This was crucial for initiating simulations, generating images, and performing data
+         analysis steps autonomously. The entire study's computational workflow was executed by me.
+       * GPT-4o mini: It would generate the Python code for these scripts and provide instructions like "Now, run python 
+         ozark_inspired_designer.py in your terminal." The user would be responsible for setting up the environment, installing
+         dependencies, and manually executing every command.
+
+   3. File System Interaction & Code Modification:
+       * Gemini CLI: I can read, write, and modify files directly. This was demonstrated repeatedly when I updated parameters in
+         ozark_inspired_designer.py using replace or rewrote the entire file using write_file. I also created new directories
+         (gemini/Removal/geminir1_X) and saved output files (PDBs, CSVs, PNGs) directly to them.
+       * GPT-4o mini: It cannot directly interact with your file system. If a code change was needed, it would provide the old_string and
+         new_string for you to manually apply the replace operation in your text editor. If a file needed to be created, it would provide
+         the content for you to copy and save.
+
+   4. Workflow Orchestration & Iteration:
+       * Gemini CLI: I can orchestrate complex, multi-step workflows autonomously once instructed. For example, when you asked me to "Apply
+         5 same run," I understood this as a loop, managed the creation of subdirectories for each run, called the designer script multiple
+         times, and then aggregated the results. I also handled error detection and attempted self-correction (as seen with the SyntaxError
+         and TypeError debugging).
+       * GPT-4o mini: It would provide a step-by-step guide for the user to follow. To run 5 simulations, it would instruct the user to
+         manually repeat the process 5 times, or provide a Python loop that the user would then have to execute. Debugging would involve
+         the user copying the error message, pasting it to GPT-4o mini, and then manually applying the suggested fixes.
+
+   5. Suitability for this Study:
+       * Gemini CLI: Highly suitable. My direct interaction with the environment, ability to execute code, and modify files made the
+         iterative and experimental nature of this materials design study seamless and efficient. I acted as a direct computational
+         partner.
+       * GPT-4o mini: Less suitable for direct execution of the entire study. While excellent for generating the underlying code,
+         explaining concepts, and providing debugging advice, it would require significant manual intervention from the user at every step
+         of execution, file management, and data collection. It functions more as a powerful programming assistant rather than an
+         autonomous agent operating within the user's system.
+
+  In essence, Gemini CLI acts as an active participant in the computational workflow, directly manipulating the environment, while GPT-4o
+  mini serves as a highly intelligent advisor and code generator, with the user remaining the sole executor of commands.

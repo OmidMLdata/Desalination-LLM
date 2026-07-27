@@ -1,0 +1,15 @@
+name: desalination-llm
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - joblib
+  - matplotlib
+  - numpy
+  - pandas
+  - pillow
+  - pyyaml
+  - scikit-learn=1.8
+  - scipy
+  - pytest
+  - pip

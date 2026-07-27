@@ -1,0 +1,20 @@
+{
+  "name": "geometry surrogate of archived CNN/MLP outputs",
+  "training_records": 3000,
+  "source": "data/processed/canonical_trials.csv",
+  "random_state": 42,
+  "flux_metrics": {
+    "group_cv_r2": 0.9291423314403597,
+    "group_cv_mae": 20.772809545983765,
+    "group_cv_rmse": 29.49693285814807
+  },
+  "rejection_metrics": {
+    "group_cv_r2": 0.9707634181130421,
+    "group_cv_mae": 0.0426543573976076,
+    "group_cv_rmse": 0.06043322829895247
+  },
+  "warning": "Secondary surrogate for runnable demos; not the paper's primary ResNet50+MLP predictor.",
+  "scikit_learn_version": "1.8.0",
+  "numpy_version": "2.3.5",
+  "python_version": "3.13.5"
+}
