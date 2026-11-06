@@ -26,8 +26,16 @@ from desalination_llm.pdb import GrapheneStructure
 
 from .env import REPO
 
-R = REPO / "results" / "claude_opus"
-GPT = REPO / "data" / "external" / "gpt61_six_category_extracted.csv"
+import os
+# results of the Claude Opus 5.5 runs; set CLAUDE_OPUS_RESULTS=paper_results/claude_opus_5_5 to
+# redraw the manuscript figures from the committed data
+R = Path(os.environ.get("CLAUDE_OPUS_RESULTS", REPO / "results" / "claude_opus"))
+if not R.is_absolute():
+    R = REPO / R
+# GPT-6.1 Sol per-step series in the six-category layout. A table built from the raw run
+# folder (scripts/import_gpt61_results.py) takes precedence over the values recovered from the PDF.
+_G = REPO / "paper_results" / "gpt_6_1_sol"
+GPT = _G / "gpt61_per_step.csv" if (_G / "gpt61_per_step.csv").exists() else _G / "gpt61_per_step_from_pdf.csv"
 FLOOR = 0.90
 SEEDS = [42, 1, 2, 3, 4, 5]
 
@@ -73,13 +81,18 @@ def gpt_steps():
     return out
 
 
+def _read(path: Path) -> pd.DataFrame:
+    """Read a CSV, falling back to the gzip-compressed copy kept in the repository."""
+    return pd.read_csv(path if path.exists() else path.with_suffix(".csv.gz"))
+
+
 def claude_trials():
-    fr = [pd.read_csv(R / "opus_tools_trials.csv").assign(cond="tools", seed=42)]
+    fr = [_read(R / "opus_tools_trials.csv").assign(cond="tools", seed=42)]
     for p in ("greedy", "constrained", "random"):
         for s in SEEDS:
             f = R / f"scaffold_{p}_s{s}_trials.csv"
-            if f.exists():
-                fr.append(pd.read_csv(f).assign(cond=p, seed=s))
+            if f.exists() or f.with_suffix(".csv.gz").exists():
+                fr.append(_read(f).assign(cond=p, seed=s))
     return pd.concat(fr, ignore_index=True)
 
 

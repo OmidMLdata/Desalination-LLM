@@ -32,6 +32,25 @@ The cleaned canonical experiment contains:
   <img src="figures/reproduced/high_rejection_flux_histogram.png" width="49%" alt="High-rejection flux histogram">
 </p>
 
+## LLM benchmark: Claude Opus 5.5 vs GPT-6.1 Sol (revised manuscript)
+
+The revised manuscript compares two LLMs under one protocol: 30 steps, up to 30 trials per step, at most 3 atoms per trial, and a 90 % rejection floor. Each model is run in six conditions:
+- as a tool-using agent;
+- in conversation only, both scored by the predictor and as estimated by the model itself;
+- against three scaffold-only baselines that use no LLM.
+
+| Where | What |
+|---|---|
+| `claude_opus/` | Benchmark code: environment, agents, baselines, figure scripts |
+| `paper_results/` | Data behind every figure and table (per-step and per-trial results, decision logs, final structures, the GPT-6.1 Sol series, reference data from Wang et al. 2021) |
+| `scripts/import_gpt61_results.py` | Screens a GPT-6.1 Sol run folder and adds the publishable items to `paper_results/gpt_6_1_sol/raw/` |
+
+Redraw the manuscript figures from the committed data:
+
+```bash
+CLAUDE_OPUS_RESULTS=paper_results/claude_opus_5_5 python -m claude_opus.figures_v3 --out paper_results/figures
+```
+
 ## Installation
 
 ```bash
