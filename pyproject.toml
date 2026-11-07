@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "desalination-llm"
-version = "0.1.0"
-description = "LLM-guided graphene nanopore design and paper reproducibility tools"
+version = "0.2.0"
+description = "LLM-agent design of graphene nanopores for desalination: benchmark code, data and reproducibility tools"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
@@ -26,13 +26,15 @@ dependencies = [
 [project.optional-dependencies]
 torch = ["torch>=2.1", "torchvision>=0.16"]
 agents = ["openai>=1.0"]
+llm = ["anthropic>=0.40", "openai>=1.0"]
 dev = ["pytest>=8.0", "ruff>=0.5"]
 
 [project.scripts]
 desalination-llm = "desalination_llm.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "."]
+include = ["desalination_llm*", "claude_opus*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

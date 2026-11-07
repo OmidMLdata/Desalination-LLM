@@ -19,14 +19,15 @@ All runs use the same protocol:
 | `claude_opus_5_5/tsne_embedding.csv` | t-SNE coordinates of all distinct pores | Fig. 5 |
 | `claude_opus_5_5/decision_logs/` | Step-by-step decision logs of both Opus runs (chosen trial or atoms, expert votes, rationale, own estimates) | Methods; Results |
 | `claude_opus_5_5/final_structures/` | Final PDB structures of the five Claude-run conditions (scaffold: seed 42) | Fig. S1b |
-| `gpt_6_1_sol/` | GPT-6.1 Sol per-step series for the six conditions; see the README in that folder | Fig. 3c,d; Fig. 4b; Fig. S2c,d; Fig. S3; Table 1; Table S2 |
+| `gpt_6_1_sol/gpt61_per_step.csv` | GPT-6.1 Sol per-step series for the six conditions, built from the raw run | Fig. 3c,d; Fig. 4b; Fig. S2c,d; Fig. S3; Table 1; Table S2 |
+| `gpt_6_1_sol/raw/` | Screened GPT-6.1 Sol run folder: protocol, per-run trials and decisions, model calls, verification (see `gpt_6_1_sol/README.md`) | Methods; provenance |
 | `reference_wang2021/wang2021_dataset_labels.csv` | MD dataset labels of Wang et al., npj 2D Mater. Appl. 5, 66 (2021), from github.com/BaratiLab/Graphene-RL (MIT licence) | Fig. 4b |
 | `reference_wang2021/wang2021_drl_hist_digitized.csv` | DRL flux histogram (rejection > 90 %), digitised from Figure 4b of the first manuscript version | Fig. 4b |
 | `figures/` | Final figure files (PDF and PNG), `table_metrics.csv`, `fig4b_stats.csv`, `tableS2_per_step.csv` | all |
 
 ## Evaluation route
 Both models use the CNN-MLP predictor of Wang et al. (2021) as the baseline evaluation method:
-- the GPT-6.1 Sol runs queried it directly;
+- the GPT-6.1 Sol runs queried the frozen ResNet-50/MLP checkpoints directly;
 - the Claude Opus 5.5 runs queried the geometry surrogate in `models/geometry_surrogate.joblib`, which was trained on 3,000 CNN-MLP predictions (grouped-CV R² 0.93 for flux and 0.97 for rejection).
 
 ## Rebuilding the figures

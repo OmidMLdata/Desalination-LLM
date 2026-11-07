@@ -49,3 +49,16 @@ These files preserve the available archived comparison material. They should not
 ## Large files excluded from Git
 
 The original project manifest listed raw trajectories, large NumPy arrays, more than 40,000 PDB files, and more than 44,000 PNG files. The public repository should retain the compact processed tables and selected structures, while depositing bulk data in Zenodo, Figshare, or an institutional repository.
+
+## Revised-manuscript benchmark (v0.2.0)
+
+The data for the Claude Opus 5.5 / GPT-6.1 Sol benchmark are in `paper_results/`; see `paper_results/README.md` for the file-to-figure map.
+
+- **Per-step tables** (`*_per_step.csv`): one row per design step (0-30) for the pore that was kept. Columns:
+  - `flux` (ns^-1) and `rejection` (fraction);
+  - `removed_count` and `removed_serials`;
+  - geometry: hull area, perimeter, circularity, aspect ratio, connected components, internal unremoved atoms;
+  - `votes` and `rationale`;
+  - for no-tool runs, `claimed_flux` and `claimed_rejection` (the model's own estimates).
+- **Trial tables** (`*_trials.csv.gz`): one row per evaluated trial, with its predicted flux and rejection, feasibility, the new atoms, the removed set, and the 21 geometric descriptors (`f_*`) used by the surrogate and the t-SNE.
+- **Validity:** a design is valid when rejection ≥ 0.90, the removed atoms form one connected cluster, and no carbon atom is trapped inside the convex hull.

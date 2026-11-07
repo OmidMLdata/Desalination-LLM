@@ -1,15 +1,25 @@
 cff-version: 1.2.0
 message: "Please cite the manuscript and this software repository."
-title: "Desalination LLM: LLM-guided graphene nanopore design"
+title: "Desalination LLM: LLM-agent design of graphene nanopores for water desalination"
 type: software
 authors:
   - family-names: "Barati Farimani"
     given-names: "Omid"
+    affiliation: "Carnegie Mellon University"
   - family-names: "Barati Farimani"
     given-names: "Amir"
-version: 0.1.0
-date-released: 2026-07-24
-repository-code: "https://github.com/REPLACE_WITH_OWNER/Desalination-LLM"
+    email: "barati@cmu.edu"
+    affiliation: "Carnegie Mellon University"
+keywords:
+  - large language models
+  - LLM agents
+  - graphene nanopores
+  - water desalination
+  - Claude Opus 5.5
+  - GPT-6.1 Sol
+version: 0.2.0
+date-released: 2026-11-07
+repository-code: "https://github.com/OmidMLdata/Desalination-LLM"
 preferred-citation:
   type: article
   title: "Desalination LLM: Large Language Model Agents Design Efficient Graphene Membranes for Water Desalination"
@@ -19,3 +29,18 @@ preferred-citation:
     - family-names: "Barati Farimani"
       given-names: "Amir"
   year: 2026
+references:
+  - type: article
+    title: "Efficient water desalination with graphene nanopores obtained using artificial intelligence"
+    authors:
+      - family-names: "Wang"
+        given-names: "Yuyang"
+      - family-names: "Cao"
+        given-names: "Zhonglin"
+      - family-names: "Barati Farimani"
+        given-names: "Amir"
+    journal: "npj 2D Materials and Applications"
+    volume: 5
+    start: 66
+    year: 2021
+    doi: "10.1038/s41699-021-00246-9"
