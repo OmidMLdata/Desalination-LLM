@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "trial_id": {
+      "type": "integer"
+    },
+    "guessed_flux": {
+      "type": "number",
+      "minimum": 0
+    },
+    "guessed_rejection": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "rationale": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "guessed_flux",
+    "guessed_rejection",
+    "rationale"
+  ],
+  "additionalProperties": false
+}

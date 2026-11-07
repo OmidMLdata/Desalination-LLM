@@ -1,0 +1,35 @@
+{
+  "model": "gpt-6.1-sol",
+  "evaluator": "validated_frozen_cnn_mlp",
+  "checks": [
+    {
+      "step": 0,
+      "absolute_error": {
+        "flux": 0.0,
+        "rejection": 5.960464477539063e-08,
+        "raw_flux": 0.0,
+        "raw_rejection": 5.960464477539063e-08
+      }
+    },
+    {
+      "step": 15,
+      "absolute_error": {
+        "flux": 1.1444091796875e-05,
+        "rejection": 0.0,
+        "raw_flux": 1.1444091796875e-05,
+        "raw_rejection": 0.0
+      }
+    },
+    {
+      "step": 30,
+      "absolute_error": {
+        "flux": 1.52587890625e-05,
+        "rejection": 1.1920928955078125e-07,
+        "raw_flux": 1.52587890625e-05,
+        "raw_rejection": 1.1920928955078125e-07
+      }
+    }
+  ],
+  "device": "cuda",
+  "imported_cache": true
+}

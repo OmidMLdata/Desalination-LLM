@@ -1,0 +1,31 @@
+step,trial_id,rationale,model
+1,4,"Seed connected growth at 301 with three atoms; all fluxes clip to zero, and this trial preserves the highest predicted rejection with passing pore checks.",gpt-6.1-sol
+2,11,"Grow three connected frontier atoms; zero clipped flux ties, with raw flux improving toward onset and 99.66% rejection, no topology defects.",gpt-6.1-sol
+3,17,Two bonded frontier removals bring raw flux closest to positive onset while retaining 99.68% rejection and defect-free connectivity.,gpt-6.1-sol
+4,18,"Highest measured feasible flux, 2.428 ns^-1, with 99.61% rejection and passing pore checks; three adjacent removals.",gpt-6.1-sol
+5,22,"Two adjacent removals deliver the highest candidate flux 7.163 ns^-1 at 99.41% rejection, with all pore checks passing.",gpt-6.1-sol
+6,8,"Maximum feasible predicted flux 8.363 ns^-1; two-atom growth retains 98.66% rejection and a connected, elongated pore passing checks.",gpt-6.1-sol
+7,11,Highest feasible flux 8.992 ns^-1 with 97.89% rejection; two connected removals maintain elongated geometry and passing topology.,gpt-6.1-sol
+8,16,Largest feasible flux 10.012 ns^-1 and 98.21% rejection; three frontier removals pass all pore checks.,gpt-6.1-sol
+9,21,"Highest feasible flux 13.620 ns^-1, rejection 96.66% above floor; three bonded frontier removals pass topology checks.",gpt-6.1-sol
+10,25,Two-atom frontier growth gives maximum measured flux 21.537 ns^-1 while maintaining 96.53% rejection and passing pore checks.,gpt-6.1-sol
+11,1,Maximum feasible flux 28.537 ns^-1 with 96.22% rejection; three actual removals satisfy connected-pore checks.,gpt-6.1-sol
+12,19,Highest feasible flux 35.058 ns^-1 at 96.01% rejection; three frontier removals pass pore checks.,gpt-6.1-sol
+13,9,Maximum measured feasible flux 40.227 ns^-1 with improved 96.43% rejection; three adjacent removals pass pore checks.,gpt-6.1-sol
+14,27,Highest feasible flux 47.601 ns^-1 at 96.41% rejection; three actual frontier removals satisfy pore checks.,gpt-6.1-sol
+15,23,"Maximum feasible flux 50.312 ns^-1, maintaining 95.07% rejection and passing connected-pore checks within three removals.",gpt-6.1-sol
+16,3,Highest feasible flux 64.885 ns^-1 at 93.12% rejection; three actual removals pass topology checks.,gpt-6.1-sol
+17,17,"Maximum feasible flux 84.461 ns^-1, rejection 90.35% still above floor; three removals pass pore checks.",gpt-6.1-sol
+18,25,"Highest flux among rejection-feasible trials, 92.186 ns^-1, also restores rejection to 92.82%; two removals pass pore checks.",gpt-6.1-sol
+19,29,One frontier removal gives the highest feasible flux 114.825 ns^-1 at 90.97% rejection; pore checks pass.,gpt-6.1-sol
+20,26,"Highest feasible flux 117.459 ns^-1 at 90.46% rejection; three frontier removals pass pore checks, while higher-flux trials violate rejection.",gpt-6.1-sol
+21,27,Maximum rejection-feasible flux 121.581 ns^-1 at 90.57%; three actual removals pass pore checks.,gpt-6.1-sol
+22,24,Single frontier removal maximizes feasible flux at 127.545 ns^-1 with 90.16% rejection; higher-flux candidates violate rejection.,gpt-6.1-sol
+23,11,Highest feasible flux 127.780 ns^-1 with rejection improving to 90.38%; one removal passes pore checks.,gpt-6.1-sol
+24,14,Two frontier removals maximize feasible flux at 130.895 ns^-1 with 90.68% rejection and passing pore checks.,gpt-6.1-sol
+25,0,KEEP has the highest feasible flux 130.895 ns^-1 at 90.68% rejection; every flux-increasing removal in this set falls below 90%.,gpt-6.1-sol
+26,12,Three frontier removals give the highest feasible flux 131.337 ns^-1 and improve rejection to 91.19%; pore checks pass.,gpt-6.1-sol
+27,8,Single frontier removal gives maximum feasible flux 131.710 ns^-1 with 90.23% rejection and passing pore checks.,gpt-6.1-sol
+28,0,KEEP maximizes feasible flux 131.710 ns^-1 at 90.23% rejection; all higher-flux removals violate the rejection floor.,gpt-6.1-sol
+29,0,KEEP remains the highest feasible flux at 131.710 ns^-1 and 90.23% rejection; higher-flux trials fail rejection.,gpt-6.1-sol
+30,0,"Final decision KEEP: highest feasible flux 131.710 ns^-1, rejection 90.23%, preserving the connected pore; every higher-flux trial violates rejection.",gpt-6.1-sol

@@ -1,0 +1,8 @@
+Completed all 30 decisions: 63 carbon atoms removed, 4 KEEP decisions.
+
+- Predicted water flux: **131.71 ns⁻¹**
+- Predicted ion rejection: **90.23%**
+- Connected pore; all pore checks passed.
+- Zero dangling atoms, trapped interior atoms, or disconnected carbon islands.
+
+The 150–170 ns⁻¹ target window was not reached. These are frozen CNN surrogate predictions, not MD results.

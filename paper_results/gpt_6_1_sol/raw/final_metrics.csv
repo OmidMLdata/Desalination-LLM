@@ -1,0 +1,7 @@
+step,flux_mean,flux_std,rejection_mean,rejection_std,runs,removed_atoms_mean,pore_check_pass_fraction,curve_key,display_label
+30,131.70950317382812,0.0,0.9022650122642517,0.0,1,63.0,1.0,tools,GPT 6.1 + tools (agent)
+30,47.29893493652344,0.0,0.8621628284454346,0.0,1,46.0,1.0,blind_score,"GPT 6.1 no tools, predictor score"
+30,2.0,0.0,0.991,0.0,1,46.0,1.0,estimate,"GPT 6.1 no tools, own estimate"
+30,157.11237335205078,3.094041179171337,0.9071900546550751,0.005725177452830674,6,57.0,1.0,greedy,"Scaffold only, greedy (no LLM)"
+30,157.11237335205078,3.094041179171337,0.9071900546550751,0.005725177452830674,6,57.0,1.0,checked,"Scaffold only, greedy + manufacturability rules"
+30,60.77438227335612,12.558362122257895,0.9285806715488434,0.01936513390514112,6,62.0,1.0,random,"Scaffold only, random feasible"

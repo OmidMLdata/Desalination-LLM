@@ -1,0 +1,1 @@
+{"trial_id":7,"guessed_flux":2.0,"guessed_rejection":0.991,"rationale":"Remove atom 236, bonded to removed atom 301, to extend the pore narrowly while preserving its connected, irregular shape. Supplied bonds show no obvious new dangling atom. Flux and rejection are unvalidated guesses; stability and transport remain unverified."}

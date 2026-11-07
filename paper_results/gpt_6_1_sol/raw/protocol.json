@@ -1,0 +1,22 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "low",
+  "steps": 30,
+  "trials": 30,
+  "max_add": 3,
+  "total_limit": 90,
+  "neighbors": 30,
+  "start_atom": 300,
+  "initial_atom_ids": [],
+  "rejection_floor": 0.9,
+  "seeds": [
+    20261012,
+    20261013,
+    20261014,
+    20261015,
+    20261016,
+    20261017
+  ],
+  "proposal_version": "shared_connected_groups_cleanup_no_quality_prefilter_v1",
+  "random_selection_stream": 30320261015
+}

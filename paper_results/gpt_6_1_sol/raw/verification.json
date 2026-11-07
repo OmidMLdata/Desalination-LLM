@@ -1,0 +1,161 @@
+{
+  "model": "gpt-6.1-sol",
+  "runs": [
+    {
+      "run": "checked_seed0",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "checked_seed1",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "checked_seed2",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "checked_seed3",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "checked_seed4",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "checked_seed5",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed0",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed1",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed2",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed3",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed4",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "greedy_seed5",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed0",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed1",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed2",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed3",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed4",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "random_seed5",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "gpt_tools_seed0",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 0
+    },
+    {
+      "run": "gpt_blind_seed0",
+      "points": 31,
+      "final_pdb_and_image_match": true,
+      "topology_fail_steps": 0,
+      "below_rejection_floor_steps": 2
+    }
+  ],
+  "independently_rescored_points": 620,
+  "max_absolute_rescore_error": {
+    "flux": 7.62939453125e-05,
+    "rejection": 2.384185791015625e-07,
+    "raw_flux": 7.62939453125e-05,
+    "raw_rejection": 2.384185791015625e-07
+  },
+  "atol": 0.0002,
+  "rtol": 1e-06,
+  "blind_model_calls": 30,
+  "blind_tool_calls": 0,
+  "blind_plan_committed_before_scoring": true,
+  "successful_native_commits": 30,
+  "native_domain_tool_calls": 61,
+  "archived_artifacts_unchanged": true,
+  "archived_artifacts_checked": 1108
+}
